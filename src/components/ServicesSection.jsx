@@ -80,10 +80,9 @@ const servicesCards = [
     title: 'Project Management',
     category: 'Management & PMO',
     icon: FileText,
-    badgeBg: 'bg-[#dbeefd] text-[#0055ff]',
+    badgeBg: 'bg-blue-50 text-[#0052cc]',
     desc: 'Plan, track and deliver projects efficiently with advanced tools and proven methodologies.',
-    image: '/images/card_01.jpg',
-    fallbackImage: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80',
     details: 'Our enterprise project management service covers Agile & Scrum transformation, PMO setup, Gantt resource allocation, risk mitigation, and automated milestone tracking.',
     features: [
       'Agile, Scrum & Kanban Project Governance',
@@ -99,10 +98,9 @@ const servicesCards = [
     title: 'Web & Mobile Development',
     category: 'Software Engineering',
     icon: Code2,
-    badgeBg: 'bg-[#f3e8ff] text-[#9333ea]',
+    badgeBg: 'bg-purple-50 text-purple-600',
     desc: 'Build modern, scalable and user-friendly websites and mobile applications.',
-    image: '/images/card_02.jpg',
-    fallbackImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80',
     details: 'Full-stack Web and iOS/Android app engineering utilizing React, React Native, Next.js, Node.js, and cloud microservices tailored for high performance.',
     features: [
       'Full-Stack Web Applications (React, Next.js, Node.js)',
@@ -118,10 +116,9 @@ const servicesCards = [
     title: 'Customer Support',
     category: 'Operations & Helpdesk',
     icon: Headphones,
-    badgeBg: 'bg-[#dcfce7] text-[#16a34a]',
+    badgeBg: 'bg-emerald-50 text-emerald-600',
     desc: 'Ensure seamless support for your customers with dedicated assistance and smart solutions.',
-    image: '/images/card_03.jpg',
-    fallbackImage: 'https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=600&q=80',
     details: '24/7 multi-channel IT helpdesk, AI-driven customer support chatbots, omnichannel ticketing integration, and SLA-backed L1-L3 technical assistance.',
     features: [
       '24/7 Omnichannel Ticketing & IT Helpdesk',
@@ -137,9 +134,9 @@ const servicesCards = [
     title: 'Human Resources',
     category: 'Enterprise Operations',
     icon: Users,
-    badgeBg: 'bg-[#ffedd5] text-[#ea580c]',
+    badgeBg: 'bg-orange-50 text-orange-600',
     desc: 'Simplify HR processes and empower your people with efficient management tools.',
-    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=80',
     details: 'Modern HRIS implementation, payroll processing automation, talent acquisition analytics, performance management systems, and employee self-service portals.',
     features: [
       'HRIS & Employee Portal Implementation',
@@ -155,9 +152,9 @@ const servicesCards = [
     title: 'Design & Creatives',
     category: 'UI/UX & Branding',
     icon: Palette,
-    badgeBg: 'bg-[#ffe4e6] text-[#e11d48]',
+    badgeBg: 'bg-pink-50 text-pink-600',
     desc: 'Creative designs that make your brand stand out and leave a lasting impression.',
-    image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80',
     details: 'UI/UX design systems, brand identity architecture, interactive prototyping, graphic design, design auditing, and accessibility compliance (WCAG 2.1).',
     features: [
       'UI/UX Product Design & Wireframing',
@@ -173,9 +170,9 @@ const servicesCards = [
     title: 'Marketing & Communication',
     category: 'Growth & Marketing',
     icon: Megaphone,
-    badgeBg: 'bg-[#fef9c3] text-[#ca8a04]',
+    badgeBg: 'bg-yellow-50 text-yellow-700',
     desc: 'Reach the right audience with impactful strategies and data-driven campaigns.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80',
     details: 'Performance marketing, search engine optimization (SEO), conversion rate optimization (CRO), multi-channel campaign automation, and data analytics.',
     features: [
       'Data-Driven Performance Marketing',
@@ -191,9 +188,9 @@ const servicesCards = [
     title: 'Business Development',
     category: 'Strategy & Growth',
     icon: TrendingUp,
-    badgeBg: 'bg-[#e0f2fe] text-[#0284c7]',
+    badgeBg: 'bg-sky-50 text-sky-600',
     desc: 'Identify new opportunities, build strong partnerships and accelerate growth.',
-    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80',
     details: 'Strategic advisory, digital transformation roadmap, strategic partnership modeling, market expansion strategies, and enterprise lead pipeline engineering.',
     features: [
       'Digital Transformation Strategy & Advisory',
@@ -357,9 +354,9 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
     }
   };
 
-  // Render Services Mode (Exact Match to User Reference Screenshot)
+  // Render Services Mode (Perfect Pixel-Accurate UI)
   return (
-    <section id="services" className="py-16 sm:py-24 bg-[#f1f3f9] text-slate-900 relative overflow-hidden font-sans scroll-mt-24">
+    <section id="services" className="py-16 sm:py-24 bg-[#eef2f8] text-slate-900 relative overflow-hidden font-sans scroll-mt-24">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Header Section */}
@@ -370,20 +367,20 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
             <span className="text-[11px] font-bold tracking-[0.25em] text-[#64748b] uppercase leading-tight font-sans">
               INNOVATE<br />DEVELOP<br />GROW
             </span>
-            <div className="w-8 h-[2px] bg-[#0055ff] mt-2 rounded-full" />
+            <div className="w-7 h-[2px] bg-[#0052cc] mt-2 rounded-full" />
           </div>
 
           {/* Center Main Title */}
           <div className="lg:col-span-6 text-center space-y-3">
-            <div className="inline-flex items-center space-x-2.5 text-[11px] sm:text-xs font-semibold tracking-[0.2em] text-[#0055ff] uppercase">
-              <span className="w-6 h-[1.5px] bg-[#0055ff]" />
+            <div className="inline-flex items-center space-x-2.5 text-[11px] sm:text-xs font-semibold tracking-[0.2em] text-[#0052cc] uppercase">
+              <span className="w-6 h-[1.5px] bg-[#0052cc]" />
               <span>OUR SERVICES</span>
-              <span className="w-6 h-[1.5px] bg-[#0055ff]" />
+              <span className="w-6 h-[1.5px] bg-[#0052cc]" />
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-black text-[#0b192c] tracking-tight leading-[1.12]">
+            <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-black text-[#0a192f] tracking-tight leading-[1.12]">
               Save Time Managing Your Business<br className="hidden sm:inline" /> With Our{' '}
-              <span className="text-[#0055ff]">Best Services</span>
+              <span className="text-[#0052cc]">Best Services</span>
             </h2>
 
             <p className="text-xs sm:text-sm text-[#64748b] max-w-xl mx-auto leading-relaxed font-normal">
@@ -414,50 +411,50 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
               <div
                 key={svc.id}
                 onClick={() => handleCardClick(svc)}
-                className="bg-[#f5f7fa] rounded-[28px] p-6 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 border border-slate-200/60 flex flex-col justify-between relative overflow-hidden group cursor-pointer min-h-[300px] sm:min-h-[320px]"
+                className="bg-white rounded-[26px] p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 flex flex-col justify-between relative overflow-hidden group cursor-pointer min-h-[290px] sm:min-h-[305px]"
               >
-                {/* Background Image Cutout on Right 50% with Smooth Gradient Blend */}
-                <div className="absolute right-0 bottom-0 top-0 w-1/2 overflow-hidden pointer-events-none rounded-r-[28px]">
+                {/* Icon Badge Top Right */}
+                <div className="absolute top-5 right-5 z-10">
+                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center shadow-xs ${svc.badgeBg}`}>
+                    <IconComponent className="w-4.5 h-4.5 stroke-[2.2]" />
+                  </div>
+                </div>
+
+                {/* Right Side Vibrant Photograph (Takes right 48% with thin left blend edge) */}
+                <div className="absolute right-0 top-0 bottom-0 w-[48%] overflow-hidden pointer-events-none rounded-r-[26px]">
                   <img 
                     src={svc.image} 
-                    onError={(e) => {
-                      if (svc.fallbackImage) {
-                        e.target.src = svc.fallbackImage;
-                      }
-                    }}
                     alt={svc.title}
                     className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  {/* Gradient overlay to smoothly blend photo into card background */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#f5f7fa] via-[#f5f7fa]/90 via-45% to-transparent" />
+                  {/* Thin Left Edge Blend to keep photo 100% vibrant */}
+                  <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white via-white/50 to-transparent z-10" />
                 </div>
 
-                {/* Card Header: Number at Left, Icon Badge at Right */}
-                <div className="flex items-center justify-between relative z-10">
-                  <span className="text-sm font-extrabold text-[#0055ff] font-mono tracking-wider">
+                {/* Left Side Content Area (Solid Pure White Background for Crisp Legibility) */}
+                <div className="relative z-10 flex flex-col justify-between h-full max-w-[55%] pointer-events-none">
+                  
+                  {/* Number */}
+                  <span className="text-xs font-bold text-[#0052cc] tracking-wider font-mono">
                     {svc.num}
                   </span>
-                  <div className={`w-11 h-11 rounded-2xl flex items-center justify-center shadow-sm ${svc.badgeBg}`}>
-                    <IconComponent className="w-5 h-5 stroke-[2.2]" />
+
+                  {/* Title & Short Description */}
+                  <div className="my-auto py-1">
+                    <h3 className="text-base sm:text-[17px] font-extrabold text-slate-900 leading-snug group-hover:text-[#0052cc] transition-colors mb-1.5 font-sans">
+                      {svc.title}
+                    </h3>
+                    <p className="text-[11px] sm:text-[12px] text-slate-500 leading-relaxed font-normal line-clamp-3">
+                      {svc.desc}
+                    </p>
                   </div>
-                </div>
 
-                {/* Card Content (Text on solid left side) */}
-                <div className="my-auto py-3 relative z-10 max-w-[85%]">
-                  <h3 className="text-lg font-black text-[#0b192c] leading-snug group-hover:text-[#0055ff] transition-colors mb-2">
-                    {svc.title}
-                  </h3>
-                  <p className="text-xs text-[#52627a] leading-relaxed font-normal line-clamp-3">
-                    {svc.desc}
-                  </p>
-                </div>
-
-                {/* Card Footer: Action Link */}
-                <div className="relative z-10 pt-1">
-                  <div className="inline-flex items-center space-x-1.5 text-xs font-bold text-[#0055ff] group-hover:translate-x-1 transition-transform">
+                  {/* Action Link */}
+                  <div className="inline-flex items-center space-x-1.5 text-[12px] font-bold text-[#0052cc] group-hover:translate-x-1 transition-transform pointer-events-auto">
                     <span>Learn More</span>
                     <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
                   </div>
+
                 </div>
 
               </div>
@@ -486,43 +483,42 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
                 onOpenContact('Enterprise Services Inquiry');
               }
             }}
-            className="bg-gradient-to-br from-[#0055ff] via-[#0048eb] to-[#0038c8] rounded-[28px] p-6 text-white shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group cursor-pointer min-h-[300px] sm:min-h-[320px]"
+            className="bg-gradient-to-br from-[#0052cc] via-[#0047d6] to-[#0038b8] rounded-[26px] p-6 text-white shadow-[0_4px_25px_rgba(0,82,204,0.25)] hover:shadow-[0_12px_35px_rgba(0,82,204,0.4)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group cursor-pointer min-h-[290px] sm:min-h-[305px]"
           >
-            {/* Subtle architectural building graphic background */}
-            <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+            {/* Background Grid Pattern */}
+            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:14px_14px] pointer-events-none" />
 
-            {/* Header: Number & Layout Grid Badge */}
+            {/* Top Row: Number & Grid Icon Badge */}
             <div className="flex items-center justify-between relative z-10">
-              <span className="text-sm font-extrabold text-blue-200 tracking-wider font-mono">
+              <span className="text-xs font-bold text-blue-200 tracking-wider font-mono">
                 +4
               </span>
-              <div className="w-11 h-11 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/25 shadow-sm">
-                <LayoutGrid className="w-5 h-5 stroke-[2]" />
+              <div className="w-9 h-9 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/25">
+                <LayoutGrid className="w-4.5 h-4.5 stroke-[2]" />
               </div>
             </div>
 
-            {/* Body Title & Description */}
+            {/* Middle Title & Description */}
             <div className="my-auto py-2 relative z-10">
               <h3 className="text-2xl sm:text-3xl font-black text-white leading-[1.08] mb-2">
                 +4<br />More<br />Services
               </h3>
-              <p className="text-xs text-blue-100/90 leading-relaxed font-normal max-w-[90%]">
+              <p className="text-[11px] sm:text-[12px] text-blue-100/90 leading-relaxed font-normal max-w-[90%]">
                 Explore all our services and find the right solution for your business.
               </p>
             </div>
 
-            {/* Footer: View All Services link + Circle Arrow Button */}
-            <div className="flex items-center justify-between pt-2 relative z-10">
-              <div className="inline-flex items-center space-x-1.5 text-xs font-bold text-white group-hover:translate-x-1 transition-transform">
+            {/* Bottom Row */}
+            <div className="flex items-center justify-between pt-1 relative z-10">
+              <div className="inline-flex items-center space-x-1.5 text-[12px] font-bold text-white group-hover:translate-x-1 transition-transform">
                 <span>View All Services</span>
                 <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
               </div>
 
-              <div className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#0055ff] transition-all duration-300">
-                <ArrowRight className="w-4.5 h-4.5 stroke-[2.5]" />
+              <div className="w-9 h-9 rounded-full border border-white/40 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#0052cc] transition-all duration-300">
+                <ArrowRight className="w-4 h-4 stroke-[2.5]" />
               </div>
             </div>
-
           </div>
 
         </div>
