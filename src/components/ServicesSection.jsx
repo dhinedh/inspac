@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  ClipboardList, 
+  FileText, 
   Code2, 
   Headphones, 
   Users, 
@@ -72,17 +72,18 @@ const industriesData = [
   }
 ];
 
-// Main 7 Services cards (matching the user provided reference image)
+// 7 Core Services matching exact reference screenshot
 const servicesCards = [
   {
     num: '01',
     id: 'project-management',
     title: 'Project Management',
     category: 'Management & PMO',
-    icon: ClipboardList,
-    badgeBg: 'bg-blue-100/90 text-[#0052cc]',
+    icon: FileText,
+    badgeBg: 'bg-[#dbeefd] text-[#0055ff]',
     desc: 'Plan, track and deliver projects efficiently with advanced tools and proven methodologies.',
-    image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80',
+    image: '/images/card_01.jpg',
+    fallbackImage: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80',
     details: 'Our enterprise project management service covers Agile & Scrum transformation, PMO setup, Gantt resource allocation, risk mitigation, and automated milestone tracking.',
     features: [
       'Agile, Scrum & Kanban Project Governance',
@@ -98,9 +99,10 @@ const servicesCards = [
     title: 'Web & Mobile Development',
     category: 'Software Engineering',
     icon: Code2,
-    badgeBg: 'bg-purple-100/90 text-purple-700',
+    badgeBg: 'bg-[#f3e8ff] text-[#9333ea]',
     desc: 'Build modern, scalable and user-friendly websites and mobile applications.',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80',
+    image: '/images/card_02.jpg',
+    fallbackImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
     details: 'Full-stack Web and iOS/Android app engineering utilizing React, React Native, Next.js, Node.js, and cloud microservices tailored for high performance.',
     features: [
       'Full-Stack Web Applications (React, Next.js, Node.js)',
@@ -116,9 +118,10 @@ const servicesCards = [
     title: 'Customer Support',
     category: 'Operations & Helpdesk',
     icon: Headphones,
-    badgeBg: 'bg-emerald-100/90 text-emerald-700',
+    badgeBg: 'bg-[#dcfce7] text-[#16a34a]',
     desc: 'Ensure seamless support for your customers with dedicated assistance and smart solutions.',
-    image: 'https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=600&q=80',
+    image: '/images/card_03.jpg',
+    fallbackImage: 'https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=800&q=80',
     details: '24/7 multi-channel IT helpdesk, AI-driven customer support chatbots, omnichannel ticketing integration, and SLA-backed L1-L3 technical assistance.',
     features: [
       '24/7 Omnichannel Ticketing & IT Helpdesk',
@@ -134,9 +137,9 @@ const servicesCards = [
     title: 'Human Resources',
     category: 'Enterprise Operations',
     icon: Users,
-    badgeBg: 'bg-amber-100/90 text-amber-800',
+    badgeBg: 'bg-[#ffedd5] text-[#ea580c]',
     desc: 'Simplify HR processes and empower your people with efficient management tools.',
-    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80',
     details: 'Modern HRIS implementation, payroll processing automation, talent acquisition analytics, performance management systems, and employee self-service portals.',
     features: [
       'HRIS & Employee Portal Implementation',
@@ -152,9 +155,9 @@ const servicesCards = [
     title: 'Design & Creatives',
     category: 'UI/UX & Branding',
     icon: Palette,
-    badgeBg: 'bg-pink-100/90 text-pink-700',
+    badgeBg: 'bg-[#ffe4e6] text-[#e11d48]',
     desc: 'Creative designs that make your brand stand out and leave a lasting impression.',
-    image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80',
     details: 'UI/UX design systems, brand identity architecture, interactive prototyping, graphic design, design auditing, and accessibility compliance (WCAG 2.1).',
     features: [
       'UI/UX Product Design & Wireframing',
@@ -170,9 +173,9 @@ const servicesCards = [
     title: 'Marketing & Communication',
     category: 'Growth & Marketing',
     icon: Megaphone,
-    badgeBg: 'bg-yellow-100/90 text-yellow-800',
+    badgeBg: 'bg-[#fef9c3] text-[#ca8a04]',
     desc: 'Reach the right audience with impactful strategies and data-driven campaigns.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
     details: 'Performance marketing, search engine optimization (SEO), conversion rate optimization (CRO), multi-channel campaign automation, and data analytics.',
     features: [
       'Data-Driven Performance Marketing',
@@ -188,9 +191,9 @@ const servicesCards = [
     title: 'Business Development',
     category: 'Strategy & Growth',
     icon: TrendingUp,
-    badgeBg: 'bg-sky-100/90 text-sky-800',
+    badgeBg: 'bg-[#e0f2fe] text-[#0284c7]',
     desc: 'Identify new opportunities, build strong partnerships and accelerate growth.',
-    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80',
     details: 'Strategic advisory, digital transformation roadmap, strategic partnership modeling, market expansion strategies, and enterprise lead pipeline engineering.',
     features: [
       'Digital Transformation Strategy & Advisory',
@@ -354,36 +357,36 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
     }
   };
 
-  // Render Services Mode (Matching exact reference image design)
+  // Render Services Mode (Exact Match to User Reference Screenshot)
   return (
-    <section id="services" className="py-16 sm:py-24 bg-[#f8fafc] text-slate-900 relative overflow-hidden font-sans scroll-mt-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-16 sm:py-24 bg-[#f1f3f9] text-slate-900 relative overflow-hidden font-sans scroll-mt-24">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Header Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center mb-12 sm:mb-16">
           
           {/* Top Left Tag: INNOVATE DEVELOP GROW */}
           <div className="lg:col-span-3 flex flex-col items-start space-y-1">
-            <span className="text-[10px] sm:text-[11px] font-extrabold tracking-[0.25em] text-slate-400 uppercase leading-tight font-mono">
+            <span className="text-[11px] font-bold tracking-[0.25em] text-[#64748b] uppercase leading-tight font-sans">
               INNOVATE<br />DEVELOP<br />GROW
             </span>
-            <div className="w-8 h-[2.5px] bg-[#0052cc] mt-1.5 rounded-full" />
+            <div className="w-8 h-[2px] bg-[#0055ff] mt-2 rounded-full" />
           </div>
 
           {/* Center Main Title */}
           <div className="lg:col-span-6 text-center space-y-3">
-            <div className="inline-flex items-center space-x-2.5 text-[11px] sm:text-xs font-bold tracking-[0.2em] text-[#0052cc] uppercase">
-              <span className="w-6 h-[1.5px] bg-[#0052cc]" />
+            <div className="inline-flex items-center space-x-2.5 text-[11px] sm:text-xs font-semibold tracking-[0.2em] text-[#0055ff] uppercase">
+              <span className="w-6 h-[1.5px] bg-[#0055ff]" />
               <span>OUR SERVICES</span>
-              <span className="w-6 h-[1.5px] bg-[#0052cc]" />
+              <span className="w-6 h-[1.5px] bg-[#0055ff]" />
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0f172a] tracking-tight leading-[1.12]">
+            <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-black text-[#0b192c] tracking-tight leading-[1.12]">
               Save Time Managing Your Business<br className="hidden sm:inline" /> With Our{' '}
-              <span className="text-[#0052cc]">Best Services</span>
+              <span className="text-[#0055ff]">Best Services</span>
             </h2>
 
-            <p className="text-xs sm:text-sm text-slate-500 max-w-xl mx-auto leading-relaxed font-normal">
+            <p className="text-xs sm:text-sm text-[#64748b] max-w-xl mx-auto leading-relaxed font-normal">
               From ideas to execution, we deliver end-to-end technology solutions to help your business grow faster and smarter.
             </p>
           </div>
@@ -391,7 +394,7 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
           {/* Top Right Cursive Decorative Text */}
           <div className="lg:col-span-3 hidden lg:flex flex-col items-end text-right">
             <span 
-              className="text-xl xl:text-2xl text-[#60a5fa] font-semibold leading-snug tracking-wide select-none transform -rotate-2"
+              className="text-2xl xl:text-3xl text-[#5b82f6] font-normal leading-tight tracking-wide select-none transform -rotate-3"
               style={{ fontFamily: "'Dancing Script', 'Caveat', 'Georgia', cursive, italic" }}
             >
               Technology<br />for a Better<br />Tomorrow
@@ -411,51 +414,57 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
               <div
                 key={svc.id}
                 onClick={() => handleCardClick(svc)}
-                className="bg-white rounded-3xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 border border-slate-100/80 flex flex-col justify-between relative overflow-hidden group cursor-pointer min-h-[300px] sm:min-h-[320px]"
+                className="bg-[#f5f7fa] rounded-[28px] p-6 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 border border-slate-200/60 flex flex-col justify-between relative overflow-hidden group cursor-pointer min-h-[300px] sm:min-h-[320px]"
               >
-                {/* Background Image Cutout / Blended Fade on Right Side */}
-                <div className="absolute right-0 bottom-0 top-0 w-1/2 overflow-hidden pointer-events-none rounded-r-3xl">
+                {/* Background Image Cutout on Right 50% with Smooth Gradient Blend */}
+                <div className="absolute right-0 bottom-0 top-0 w-1/2 overflow-hidden pointer-events-none rounded-r-[28px]">
                   <img 
                     src={svc.image} 
+                    onError={(e) => {
+                      if (svc.fallbackImage) {
+                        e.target.src = svc.fallbackImage;
+                      }
+                    }}
                     alt={svc.title}
-                    className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 opacity-80"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  {/* Smooth White Gradient Mask Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 via-50% to-transparent" />
+                  {/* Gradient overlay to smoothly blend photo into card background */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#f5f7fa] via-[#f5f7fa]/90 via-45% to-transparent" />
                 </div>
 
                 {/* Card Header: Number at Left, Icon Badge at Right */}
                 <div className="flex items-center justify-between relative z-10">
-                  <span className="text-sm font-extrabold text-[#0052cc] tracking-wider font-mono">
+                  <span className="text-sm font-extrabold text-[#0055ff] font-mono tracking-wider">
                     {svc.num}
                   </span>
-                  <div className={`w-10 h-10 rounded-2xl flex items-center justify-center shadow-sm ${svc.badgeBg}`}>
+                  <div className={`w-11 h-11 rounded-2xl flex items-center justify-center shadow-sm ${svc.badgeBg}`}>
                     <IconComponent className="w-5 h-5 stroke-[2.2]" />
                   </div>
                 </div>
 
-                {/* Card Body: Title & Short Description */}
-                <div className="my-auto py-4 relative z-10 max-w-[85%]">
-                  <h3 className="text-base sm:text-lg font-extrabold text-[#0f172a] leading-snug group-hover:text-[#0052cc] transition-colors mb-2">
+                {/* Card Content (Text on solid left side) */}
+                <div className="my-auto py-3 relative z-10 max-w-[85%]">
+                  <h3 className="text-lg font-black text-[#0b192c] leading-snug group-hover:text-[#0055ff] transition-colors mb-2">
                     {svc.title}
                   </h3>
-                  <p className="text-xs text-slate-500 leading-relaxed font-normal line-clamp-3">
+                  <p className="text-xs text-[#52627a] leading-relaxed font-normal line-clamp-3">
                     {svc.desc}
                   </p>
                 </div>
 
                 {/* Card Footer: Action Link */}
                 <div className="relative z-10 pt-1">
-                  <div className="inline-flex items-center space-x-1.5 text-xs font-bold text-[#0052cc] group-hover:translate-x-1 transition-transform">
+                  <div className="inline-flex items-center space-x-1.5 text-xs font-bold text-[#0055ff] group-hover:translate-x-1 transition-transform">
                     <span>Learn More</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
                   </div>
                 </div>
+
               </div>
             );
           })}
 
-          {/* Card 08: "+4 More Services" Solid Blue Gradient CTA Card */}
+          {/* Card 08: "+4 More Services" Solid Blue CTA Card */}
           <div
             onClick={() => {
               if (onSelectService) {
@@ -477,9 +486,9 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
                 onOpenContact('Enterprise Services Inquiry');
               }
             }}
-            className="bg-gradient-to-br from-[#0052cc] via-[#0047bd] to-[#003899] rounded-3xl p-6 text-white shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group cursor-pointer min-h-[300px] sm:min-h-[320px]"
+            className="bg-gradient-to-br from-[#0055ff] via-[#0048eb] to-[#0038c8] rounded-[28px] p-6 text-white shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group cursor-pointer min-h-[300px] sm:min-h-[320px]"
           >
-            {/* Background Grid Pattern Overlay */}
+            {/* Subtle architectural building graphic background */}
             <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
             {/* Header: Number & Layout Grid Badge */}
@@ -487,30 +496,30 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
               <span className="text-sm font-extrabold text-blue-200 tracking-wider font-mono">
                 +4
               </span>
-              <div className="w-10 h-10 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-white border border-white/20 shadow-sm">
+              <div className="w-11 h-11 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/25 shadow-sm">
                 <LayoutGrid className="w-5 h-5 stroke-[2]" />
               </div>
             </div>
 
             {/* Body Title & Description */}
-            <div className="my-auto py-3 relative z-10">
-              <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight mb-2">
-                +4 More<br />Services
+            <div className="my-auto py-2 relative z-10">
+              <h3 className="text-2xl sm:text-3xl font-black text-white leading-[1.08] mb-2">
+                +4<br />More<br />Services
               </h3>
               <p className="text-xs text-blue-100/90 leading-relaxed font-normal max-w-[90%]">
                 Explore all our services and find the right solution for your business.
               </p>
             </div>
 
-            {/* Footer: View All Services link + Circle Button */}
+            {/* Footer: View All Services link + Circle Arrow Button */}
             <div className="flex items-center justify-between pt-2 relative z-10">
               <div className="inline-flex items-center space-x-1.5 text-xs font-bold text-white group-hover:translate-x-1 transition-transform">
                 <span>View All Services</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
               </div>
 
-              <div className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#0052cc] transition-all duration-300">
-                <ArrowRight className="w-4.5 h-4.5" />
+              <div className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#0055ff] transition-all duration-300">
+                <ArrowRight className="w-4.5 h-4.5 stroke-[2.5]" />
               </div>
             </div>
 
@@ -518,8 +527,8 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
 
         </div>
 
-        {/* Bottom Taglines / Footer Labels */}
-        <div className="mt-12 sm:mt-16 pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] sm:text-xs font-mono font-bold tracking-[0.2em] text-slate-400 uppercase">
+        {/* Bottom Taglines / Footer Corner Labels */}
+        <div className="mt-12 sm:mt-16 pt-6 border-t border-slate-300/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] sm:text-xs font-mono font-bold tracking-[0.2em] text-[#94a3b8] uppercase">
           <div className="flex items-center space-x-3">
             <span>YOUR SUCCESS</span>
             <span className="w-6 h-[1.5px] bg-slate-300" />
