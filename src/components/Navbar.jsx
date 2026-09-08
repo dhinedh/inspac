@@ -29,7 +29,11 @@ import {
   FileText,
   Award,
   ArrowRight,
-  Users
+  Users,
+  Headphones,
+  UserCheck,
+  BarChart2,
+  GitBranch
 } from 'lucide-react';
 import { companyInfo } from '../data/companyData';
 
@@ -73,143 +77,159 @@ export default function Navbar({ onOpenContact }) {
 
   const whatWeDoCategories = [
     {
-      title: "Data & Data Science",
-      icon: BarChart3,
-      subHeader: "DATA & ANALYTICS SOLUTIONS",
+      title: "Digital Engineering",
+      icon: Code2,
+      subHeader: "DIGITAL ENGINEERING & MODERNIZATION",
       items: [
-        { name: "Predictive Analytics & Forecasting", path: "/services" },
-        { name: "Executive BI & Automated Dashboards", path: "/services" },
-        { name: "BigQuery, Snowflake & Databricks", path: "/services" },
-        { name: "Data Lakes & ETL Pipeline Engineering", path: "/services" }
+        { name: "Cloud-Native Web & Mobile Engineering", path: "/services" },
+        { name: "Legacy Decoupling & Microservices", path: "/services" },
+        { name: "High-Throughput REST & GraphQL APIs", path: "/services" },
+        { name: "Event-Driven Distributed Messaging", path: "/services" }
       ]
     },
     {
-      title: "Database Solutions",
-      icon: Database,
-      subHeader: "DATABASE INFRASTRUCTURE",
-      items: [
-        { name: "High Availability (HA) & Disaster Recovery", path: "/services" },
-        { name: "Sub-Second Database Performance Tuning", path: "/services" },
-        { name: "Zero-Downtime Data Migration", path: "/services" },
-        { name: "Database Security & Lineage Mapping", path: "/services" }
-      ]
-    },
-    {
-      title: "ERP Solutions",
-      icon: Layers,
-      subHeader: "ENTERPRISE RESOURCE PLANNING",
-      items: [
-        { name: "SAP & Oracle ERP Implementation", path: "/services" },
-        { name: "Cross-Module Workflow Automation", path: "/services" },
-        { name: "Real-Time Supply Chain & Finance", path: "/services" },
-        { name: "Legacy ERP System Modernization", path: "/services" }
-      ]
-    },
-    {
-      title: "Cloud & DevOps",
+      title: "Cloud & DevSecOps",
       icon: Cloud,
-      subHeader: "CLOUD & DEVOPS CAPABILITIES",
+      subHeader: "CLOUD TRANSFORMATION & DEVSECOPS",
       items: [
         { name: "AWS, Azure & GCP Multi-Cloud Strategy", path: "/services" },
-        { name: "Kubernetes & Container Orchestration", path: "/services" },
         { name: "Terraform Infrastructure as Code (IaC)", path: "/services" },
-        { name: "DevSecOps CI/CD Pipeline Automation", path: "/services" }
+        { name: "Kubernetes & Service Mesh Orchestration", path: "/services" },
+        { name: "DevSecOps CI/CD & FinOps Governance", path: "/services" }
       ]
     },
     {
-      title: "Process Management",
-      icon: GitPullRequest,
-      subHeader: "PROCESS IMPROVEMENT & AUTOMATION",
+      title: "Enterprise AI & Data",
+      icon: BarChart3,
+      subHeader: "ENTERPRISE AI & MODERN LAKEHOUSE",
       items: [
-        { name: "Business Process Re-engineering (BPR)", path: "/services" },
-        { name: "Workflow Automation & RPA Integration", path: "/services" },
-        { name: "Operational Efficiency Audits", path: "/services" },
-        { name: "SOP Digitization & KPI Controls", path: "/services" }
+        { name: "Governed Lakehouses (Snowflake/BigQuery)", path: "/services" },
+        { name: "Real-Time Streaming Pipelines (dbt/Spark)", path: "/services" },
+        { name: "Generative AI, Enterprise RAG & LLMs", path: "/services" },
+        { name: "Predictive Intelligence & BI Scorecards", path: "/services" }
       ]
     },
     {
-      title: "Governance, Risk & Compliance",
+      title: "Cybersecurity & GRC",
       icon: ShieldCheck,
-      subHeader: "GOVERNANCE, RISK & COMPLIANCE (GRC)",
+      subHeader: "CYBERSECURITY & COMPLIANCE ADVISORY",
       items: [
-        { name: "ISO 27001 Risk & Security Advisory", path: "/compliance" },
-        { name: "NIST Security Control Frameworks", path: "/compliance" },
-        { name: "IT General Controls (ITGC) Testing", path: "/compliance" },
-        { name: "Data Privacy (PDPA / GDPR) Governance", path: "/compliance" }
+        { name: "PCI-DSS v4.0 Attestation (AOC) Support", path: "/compliance" },
+        { name: "Cardholder Data Environment Isolation", path: "/compliance" },
+        { name: "ISO 27001 & NIST Security Frameworks", path: "/compliance" },
+        { name: "Third-Party Vendor Risk & ITGC Audits", path: "/compliance" }
       ]
     },
     {
-      title: "PCI-DSS Compliance",
-      icon: CreditCard,
-      subHeader: "PCI-DSS v4.0 ADVISORY",
+      title: "Enterprise ERP & Platforms",
+      icon: Layers,
+      subHeader: "ENTERPRISE APPLICATION SERVICES",
       items: [
-        { name: "PCI-DSS v4.0 Gap Analysis & Scope Reduction", path: "/compliance" },
-        { name: "Cardholder Data Environment (CDE) Isolation", path: "/compliance" },
-        { name: "Attestation of Compliance (AOC) Support", path: "/compliance" },
-        { name: "QSA Audit Readiness & Preparation", path: "/compliance" }
+        { name: "SAP S/4HANA & Oracle Cloud ERP", path: "/services" },
+        { name: "Cross-Module Workflow Automation", path: "/services" },
+        { name: "Supply Chain & Financial Ledger Sync", path: "/services" },
+        { name: "Legacy ERP Modernization Connectors", path: "/services" }
       ]
     },
     {
-      title: "Auditing Services",
+      title: "Intelligent Automation",
+      icon: GitPullRequest,
+      subHeader: "DIGITAL OPERATIONS & RPA",
+      items: [
+        { name: "Robotic Process Automation (UiPath/Power)", path: "/services" },
+        { name: "Intelligent Document Processing (IDP)", path: "/services" },
+        { name: "Business Process Re-engineering (BPR)", path: "/services" },
+        { name: "Operational Bottleneck Analytics", path: "/services" }
+      ]
+    },
+    {
+      title: "Quality Engineering",
       icon: CheckCircle2,
-      subHeader: "ASSESSMENT & AUDITING SERVICES",
+      subHeader: "QUALITY ENGINEERING & ASSURANCE",
       items: [
-        { name: "Security & IT Infrastructure Auditing", path: "/compliance" },
-        { name: "Third-Party Vendor Risk Audits", path: "/compliance" },
-        { name: "Vulnerability Scanning Coordination", path: "/compliance" },
-        { name: "Audit Pass Rate Readiness Review", path: "/compliance" }
+        { name: "Continuous Automated Testing (Playwright)", path: "/services" },
+        { name: "API Load & High-Scale Stress Testing", path: "/services" },
+        { name: "OWASP Security & Vulnerability QA", path: "/services" },
+        { name: "Chaos Engineering & Disaster Recovery", path: "/services" }
+      ]
+    },
+    {
+      title: "24/7 Managed Services",
+      icon: Database,
+      subHeader: "MANAGED INFRASTRUCTURE & SERVICE DESK",
+      items: [
+        { name: "24/7/365 Global NOC/SOC Operations", path: "/services" },
+        { name: "High Availability Database HA/DR", path: "/services" },
+        { name: "Omnichannel L1-L3 Support Desk", path: "/services" },
+        { name: "Sub-15 Minute Incident Response SLAs", path: "/services" }
       ]
     }
   ];
 
   const productsList = [
     {
-      name: "Inspac DataPulse BI",
-      category: "Data & AI",
-      desc: "Automated Executive Dashboards & Predictive AI",
-      icon: BarChart3,
-      path: "/services",
+      name: "Inspac PulseCRM",
+      category: "Sales & CRM",
+      desc: "Omnichannel Sales & Pipeline Cloud (Zoho CRM)",
+      icon: Users,
+      path: "/#products",
       badgeColor: "bg-blue-100 text-blue-700 border-blue-200"
     },
     {
-      name: "DataStream Pipeline Hub",
-      category: "Data & AI",
-      desc: "Real-time Lakehouse & Pipeline Orchestrator",
-      icon: Database,
-      path: "/services",
-      badgeColor: "bg-blue-100 text-blue-700 border-blue-200"
-    },
-    {
-      name: "ComplianceShield v4.0",
-      category: "GRC & Security",
-      desc: "Interactive PCI-DSS 4.0 & GRC Readiness Tool",
-      icon: ShieldCheck,
-      path: "/compliance",
+      name: "Inspac Books & Finance",
+      category: "Finance & Accounting",
+      desc: "Enterprise Accounting & Tax Suite (Zoho Books)",
+      icon: CreditCard,
+      path: "/#products",
       badgeColor: "bg-emerald-100 text-emerald-700 border-emerald-200"
     },
     {
-      name: "AuditTrail Pro",
-      category: "GRC & Security",
-      desc: "Continuous ITGC Risk & Vulnerability Scanner",
-      icon: CheckCircle2,
-      path: "/compliance",
-      badgeColor: "bg-emerald-100 text-emerald-700 border-emerald-200"
+      name: "Inspac Desk & Support",
+      category: "Service & Helpdesk",
+      desc: "AI Omnichannel Support Desk (Zoho Desk)",
+      icon: Headphones,
+      path: "/#products",
+      badgeColor: "bg-purple-100 text-purple-700 border-purple-200"
     },
     {
-      name: "ERP MatrixConnect",
-      category: "Enterprise ERP",
-      desc: "Unified SAP & Oracle Real-Time Middleware",
-      icon: Layers,
-      path: "/services",
+      name: "Inspac People HRMS",
+      category: "Human Resources",
+      desc: "Workforce & Automated Payroll (Zoho People)",
+      icon: UserCheck,
+      path: "/#products",
+      badgeColor: "bg-orange-100 text-orange-700 border-orange-200"
+    },
+    {
+      name: "Inspac Analytics BI",
+      category: "Data & BI",
+      desc: "Visual Executive BI & Analytics (Zoho Analytics)",
+      icon: BarChart2,
+      path: "/#products",
+      badgeColor: "bg-sky-100 text-sky-700 border-sky-200"
+    },
+    {
+      name: "Inspac Creator Studio",
+      category: "Low-Code Engineering",
+      desc: "Enterprise Low-Code App Platform (Zoho Creator)",
+      icon: Code2,
+      path: "/#products",
       badgeColor: "bg-indigo-100 text-indigo-700 border-indigo-200"
     },
     {
-      name: "CloudOps Guardian",
-      category: "Cloud & DevOps",
-      desc: "Multi-Cloud FinOps & Kubernetes Automation",
-      icon: Cloud,
-      path: "/services",
-      badgeColor: "bg-purple-100 text-purple-700 border-purple-200"
+      name: "Inspac Vault & Directory",
+      category: "Security & Identity",
+      desc: "Zero-Trust Secrets & SSO Vault (Zoho Vault)",
+      icon: ShieldCheck,
+      path: "/#products",
+      badgeColor: "bg-rose-100 text-rose-700 border-rose-200"
+    },
+    {
+      name: "Inspac Flow Automation",
+      category: "Integration & iPaaS",
+      desc: "Cross-App Integration Bus (Zoho Flow)",
+      icon: GitBranch,
+      path: "/#products",
+      badgeColor: "bg-amber-100 text-amber-700 border-amber-200"
     }
   ];
 

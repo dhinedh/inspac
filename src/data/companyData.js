@@ -49,257 +49,398 @@ export const companyInfo = {
     }
   ],
   stats: [
-    { label: "Service Verticals", value: "9+", detail: "Across Data, Cloud, GRC & ERP" },
-    { label: "Global Presence", value: "3", detail: "Singapore, India & Australia" },
-    { label: "Enterprise Projects", value: "250+", detail: "Delivered with 100% SLA" },
-    { label: "Compliance Success", value: "100%", detail: "PCI-DSS & ISO Audit Pass Rate" }
+    { label: "Core Enterprise Practices", value: "8+", detail: "Digital Engineering, Cloud, AI & GRC" },
+    { label: "Global Presence", value: "3", detail: "Singapore HQ, India R&D & Australia Ops" },
+    { label: "Enterprise Projects", value: "350+", detail: "Delivered with 100% SLA Adherence" },
+    { label: "Compliance Success", value: "100%", detail: "PCI-DSS 4.0 & ISO 27001 Pass Rate" }
   ]
 };
 
+// Enterprise Consulting & Technology Services (Modeled after HCLTech & Cognizant/CTS)
 export const servicesData = [
   {
-    id: "data-science",
-    title: "Data & Data Science",
-    icon: "BarChart3",
-    category: "Tech & Data",
-    summary: "Data-driven solutions, predictive analytics, and data science expertise to support smarter executive decisions.",
-    description: "Transform your raw enterprise data into predictive insights and actionable intelligence. We construct modern data lakes, ETL pipelines, and advanced machine learning models tailored for business forecasting.",
-    features: [
-      "Enterprise Business Intelligence & Dashboards",
-      "Predictive Analytics & Forecasting Models",
-      "BigQuery, Snowflake & Databricks Integration",
-      "Data Governance & Lineage Mapping",
-      "Automated ETL / ELT Data Pipelines"
-    ],
-    benefits: "Faster decision-making, reduced operational friction, and high-accuracy business forecasting."
-  },
-  {
-    id: "database-solutions",
-    title: "Database Solutions",
-    icon: "Database",
-    category: "Tech & Data",
-    summary: "Database architecture designed to support secure, reliable, high-availability and efficient business operations.",
-    description: "End-to-end database management including design, optimization, clustering, high availability, disaster recovery, and seamless cloud migrations for SQL & NoSQL systems.",
-    features: [
-      "High Availability (HA) & Disaster Recovery (DR)",
-      "Performance Tuning & Index Optimization",
-      "Database Migration (Oracle, SQL Server, PostgreSQL, MySQL)",
-      "Zero-Downtime Replication & Clustering",
-      "Database Security & Encryption at Rest/Transit"
-    ],
-    benefits: "99.999% system availability, sub-second query latency, and robust data protection."
-  },
-  {
-    id: "erp-solutions",
-    title: "ERP Solutions",
-    icon: "Layers",
-    category: "Tech & Data",
-    summary: "Enterprise resource planning solutions supporting integrated business processes and seamless operations.",
-    description: "Unify your organization's finance, supply chain, HR, and sales functions with tailored ERP implementations and modern custom extensions.",
-    features: [
-      "SAP, Oracle ERP & Custom ERP Engineering",
-      "Cross-Module Workflow Automation",
-      "Real-Time Supply Chain & Financial Reporting",
-      "Legacy System ERP Modernization",
-      "API Middleware & Integration Connectors"
-    ],
-    benefits: "Eliminates operational silos, lowers administrative overhead, and unifies business reporting."
-  },
-  {
-    id: "cloud-devops",
-    title: "Cloud & DevOps",
-    icon: "Cloud",
-    category: "Cloud & Ops",
-    summary: "Cloud technologies and DevOps practices supporting infrastructure automation, scalability, and operational efficiency.",
-    description: "Accelerate software delivery with automated CI/CD infrastructure, cloud-native containerization (Docker/Kubernetes), and multi-cloud strategy on AWS, GCP, and Azure.",
-    features: [
-      "Infrastructure as Code (Terraform, CloudFormation)",
-      "Automated CI/CD Pipelines (GitHub Actions, Jenkins)",
-      "Containerization & Kubernetes Orchestration",
-      "Multi-Cloud Architecture (AWS, Azure, GCP)",
-      "Cloud FinOps & Cost Optimization"
-    ],
-    benefits: "10x faster release velocity, resilient cloud infrastructure, and optimized cloud spend."
-  },
-  {
-    id: "process-management",
-    title: "Process Management",
-    icon: "GitPullRequest",
-    category: "Cloud & Ops",
-    summary: "Process improvement solutions designed to enhance efficiency, consistency, and organizational performance.",
-    description: "Streamline business workflows using Lean Six Sigma methodologies, robotic process automation (RPA), and continuous process monitoring.",
-    features: [
-      "Business Process Re-engineering (BPR)",
-      "Workflow Automation & RPA Integration",
-      "KPI & Bottleneck Analysis Frameworks",
-      "Standard Operating Procedure (SOP) Digitization",
-      "Operational Efficiency Audits"
-    ],
-    benefits: "Higher productivity, reduced human error, and clear operational standard operating procedures."
-  },
-  {
-    id: "grc-solutions",
-    title: "Governance, Risk & Compliance (GRC)",
-    icon: "ShieldCheck",
-    category: "Governance & Security",
-    summary: "GRC solutions supporting enterprise governance frameworks, risk management, and strict regulatory compliance.",
-    description: "Align your IT operations with international standards, ISO 27001, NIST, and regional data protection regulations (PDPA, GDPR).",
-    features: [
-      "Enterprise Risk Assessment & Mitigation Plans",
-      "ISO 27001 & NIST Compliance Advisory",
-      "Data Privacy (PDPA / GDPR) Governance",
-      "Policy Authoring & Control Framework Mapping",
-      "Board-Level Compliance Dashboards"
-    ],
-    benefits: "Protects brand reputation, mitigates legal liability, and maintains continuous audit-readiness."
-  },
-  {
-    id: "pci-dss-compliance",
-    title: "PCI-DSS Compliance",
-    icon: "CreditCard",
-    category: "Governance & Security",
-    summary: "Professional support for PCI-DSS requirements, cardholder data security controls, and compliance certification.",
-    description: "Specialized advisory for merchants and payment processors to safeguard payment data, pass QSA audits, and comply with PCI-DSS 4.0 standards.",
-    features: [
-      "PCI-DSS v4.0 Gap Analysis & Scope Reduction",
-      "Cardholder Data Environment (CDE) Isolation",
-      "Vulnerability Scanning & Penetration Testing Coordination",
-      "Network Segmentation & Firewall Rule Audits",
-      "Attestation of Compliance (AOC) Support"
-    ],
-    benefits: "Prevents payment data breaches, eliminates card brand fines, and ensures smooth AOC sign-off."
-  },
-  {
-    id: "auditing-services",
-    title: "Auditing Services",
-    icon: "CheckCircle2",
-    category: "Governance & Security",
-    summary: "Auditing and assessment services supporting security posture, governance, and regulatory objectives.",
-    description: "Independent, rigorous technical and process audits to uncover vulnerabilities, system misconfigurations, and regulatory non-compliance before external regulators do.",
-    features: [
-      "Third-Party Vendor Risk Audits",
-      "IT General Controls (ITGC) Testing",
-      "Cybersecurity Architecture Reviews",
-      "Cloud Security Posture Assessment (GCP/AWS/Azure)",
-      "Remediation Roadmap & Re-audit Verification"
-    ],
-    benefits: "Objective risk visibility, actionable remediation steps, and total stakeholder confidence."
-  },
-  {
-    id: "custom-development",
-    title: "Website & Custom Application Engineering",
+    id: "digital-engineering",
+    title: "Digital Engineering & Application Modernization",
     icon: "Code2",
-    category: "Tech & Data",
-    summary: "High-performance web applications, enterprise software, and mobile-ready responsive platforms.",
-    description: "Custom software engineering built with modern frameworks (React, Next.js, Node.js, Python) designed for extreme performance, security, and exceptional user experience.",
+    category: "Digital Engineering",
+    summary: "Cloud-native microservices, modern full-stack web/mobile platforms, legacy refactoring, and high-throughput API architectures.",
+    description: "Inspired by global IT leaders like Cognizant and HCL, we design resilient, scalable digital systems. We architect modern frontends (React, Next.js, Flutter), microservices backends (Node.js, Go, Python), and decouple legacy monolithic applications into distributed, high-speed architectures.",
     features: [
-      "Modern Web Applications & SaaS Solutions",
-      "RESTful & GraphQL API Architecture",
-      "UI/UX Design Systems & Accessibility (WCAG)",
-      "PWA & Cross-Platform Mobile Solutions",
-      "Legacy Code Refactoring & Security Hardening"
+      "Full-Stack Web & Mobile Architecture (React, Next.js, iOS/Android)",
+      "Legacy Core Decoupling & Microservices Migration",
+      "High-Throughput RESTful & GraphQL API Gateways",
+      "Event-Driven Architecture & Kafka/PubSub Message Brokers",
+      "Human-Centered UI/UX Design Systems & WCAG 2.1 AA Compliance"
     ],
-    benefits: "Stunning user experience, high conversion rates, and scalable web architecture."
+    benefits: "70% faster time-to-market for new features, sub-second latency, and horizontal autoscaling under peak transaction loads."
+  },
+  {
+    id: "cloud-devsecops",
+    title: "Cloud Transformation & DevSecOps",
+    icon: "Cloud",
+    category: "Cloud & Infrastructure",
+    summary: "Multi-cloud architecture (AWS, Azure, GCP), automated Terraform IaC, Kubernetes container orchestration, and Cloud FinOps governance.",
+    description: "Accelerate your cloud modernization following proven frameworks like HCL CloudSMART and CTS Cloud 360. We deliver automated CI/CD pipelines, secure zero-trust landing zones, containerized microservices orchestration, and comprehensive multi-cloud cost optimization.",
+    features: [
+      "Multi-Cloud Architecture & Landing Zones (AWS, Azure, Google Cloud)",
+      "Infrastructure as Code (IaC) with Terraform & CloudFormation",
+      "Enterprise Kubernetes (EKS, GKE, AKS) & Service Mesh (Istio)",
+      "Zero-Trust DevSecOps CI/CD Pipelines with Automated SAST/DAST",
+      "Cloud FinOps, Resource Rightsizing & Cost Optimization"
+    ],
+    benefits: "10x deployment frequency, 99.99% infrastructure availability, and up to 35% reduction in multi-cloud operational spend."
+  },
+  {
+    id: "ai-data-lakehouse",
+    title: "Enterprise AI, Data Lakehouse & Analytics",
+    icon: "BarChart3",
+    category: "AI & Data Science",
+    summary: "Generative AI enterprise integration, modern data lakes (Snowflake, Databricks, BigQuery), real-time ETL/ELT pipelines, and predictive analytics.",
+    description: "Harness enterprise intelligence modeled after CTS AI & Analytics. We unify fragmented enterprise data into governed lakehouses, implement automated data pipelines, and deploy custom machine learning and Generative AI agents for automated decision intelligence.",
+    features: [
+      "Governed Data Lakehouses (Snowflake, Databricks, Google BigQuery)",
+      "Real-Time Streaming & Automated ETL/ELT Pipelines (Airflow, dbt, Spark)",
+      "Generative AI, LLM Fine-Tuning & Enterprise RAG Systems",
+      "Predictive Analytics & Executive BI Dashboards (Power BI, Tableau)",
+      "Data Governance, Lineage Tracking & Master Data Management (MDM)"
+    ],
+    benefits: "Unified single source of enterprise truth, high-accuracy forecasting, and automated executive decision support."
+  },
+  {
+    id: "cybersecurity-grc",
+    title: "Cybersecurity, GRC & PCI-DSS 4.0 Advisory",
+    icon: "ShieldCheck",
+    category: "Security & Governance",
+    summary: "PCI-DSS v4.0 Attestation of Compliance (AOC), ISO 27001/NIST frameworks, Zero Trust security posture, and automated compliance auditing.",
+    description: "Industry-leading cybersecurity and governance consulting comparable to HCL Cybersecurity and global QSA assessors. We isolate Cardholder Data Environments (CDE), automate vulnerability scanning, formulate board-level risk registers, and guarantee smooth audit pass rates.",
+    features: [
+      "PCI-DSS v4.0 Gap Assessment & Scope Reduction Architecture",
+      "Cardholder Data Environment (CDE) Network Segmentation Audits",
+      "ISO/IEC 27001, NIST CSF & Regional Privacy (PDPA / GDPR) Compliance",
+      "Third-Party Vendor Risk Assessment & ITGC Controls Testing",
+      "Attestation of Compliance (AOC) Support & QSA Audit Liaison"
+    ],
+    benefits: "100% first-attempt audit pass rate, zero non-compliance penalties, and fortified defense against data breaches."
+  },
+  {
+    id: "enterprise-erp",
+    title: "Enterprise Platform Services & ERP Modernization",
+    icon: "Layers",
+    category: "Enterprise Applications",
+    summary: "SAP S/4HANA & Oracle Cloud ERP implementation, supply chain optimization, cross-module workflow automation, and custom middleware.",
+    description: "Streamline core business operations with enterprise platform expertise modeled after Cognizant Enterprise Application Services. We implement, migrate, and modernize SAP, Oracle, and tailored ERP solutions to integrate finance, procurement, manufacturing, and HR.",
+    features: [
+      "SAP S/4HANA & Oracle Cloud ERP Migration & Customization",
+      "Cross-Module Workflow Orchestration & Real-Time Financial Ledger Sync",
+      "Automated Supply Chain, Procurement & Inventory Tracking",
+      "Legacy ERP Decoupling with Modern RESTful Middleware Connectors",
+      "Continuous ERP Upgrade Management & Custom Extension Engineering"
+    ],
+    benefits: "Eliminates departmental silos, delivers real-time P&L visibility, and reduces administrative overhead by 40%."
+  },
+  {
+    id: "process-automation",
+    title: "Intelligent Process Automation & Digital Operations",
+    icon: "GitPullRequest",
+    category: "Operations & Automation",
+    summary: "Robotic Process Automation (RPA), Business Process Re-engineering (BPR), AI agent workflows, and Lean Six Sigma operational optimization.",
+    description: "Benchmark your operations against HCL Digital Operations and Cognizant Intelligent Automation. We combine RPA (UiPath, Power Automate) with AI cognitive services to eliminate tedious manual workflows, digitize documentation, and enhance workforce productivity.",
+    features: [
+      "Robotic Process Automation (UiPath, Automation Anywhere, Power Automate)",
+      "End-to-End Business Process Re-engineering (BPR)",
+      "Intelligent Document Processing (IDP) & OCR Ingestion Pipelines",
+      "Standard Operating Procedure (SOP) Digitization & Workflow Tracking",
+      "Process Bottleneck Analytics & Real-Time KPI Dashboards"
+    ],
+    benefits: "80% reduction in manual data entry error, 5x faster cycle turnaround, and enhanced employee productivity."
+  },
+  {
+    id: "quality-engineering",
+    title: "Quality Engineering & Assurance",
+    icon: "CheckCircle2",
+    category: "Quality Engineering",
+    summary: "Continuous test automation, performance and load engineering, API & security verification, and chaos engineering for mission-critical software.",
+    description: "Emulating the rigorous quality engineering practices of CTS and HCL, we embed automated testing across the SDLC. From unit and API integration testing to extreme-scale load simulations, we ensure flawless software reliability before production release.",
+    features: [
+      "Continuous Test Automation (Playwright, Cypress, Selenium)",
+      "API Performance, Stress & Load Simulation (k6, JMeter)",
+      "Automated Security & Vulnerability QA (OWASP Top 10 Scans)",
+      "Cross-Browser, Mobile Device Matrix & Accessibility (WCAG) Testing",
+      "Chaos Engineering & Disaster Recovery Validation"
+    ],
+    benefits: "Zero critical production escape defects, 90% test automation coverage, and guaranteed high-concurrency resilience."
+  },
+  {
+    id: "managed-services",
+    title: "24/7 Global Managed Infrastructure & IT Services",
+    icon: "Database",
+    category: "Managed Operations",
+    summary: "Global L1-L3 service desk, database high-availability clustering, 24/7 multi-region NOC/SOC monitoring, and SLA-backed maintenance.",
+    description: "Deliver uninterrupted digital uptime with round-the-clock infrastructure management. Our offshore and regional engineering desks in Singapore, India, and Australia monitor, maintain, and safeguard client workloads with strict 15-minute response SLAs.",
+    features: [
+      "24/7/365 Global NOC/SOC Operations & Incident Management",
+      "High-Availability Database Administration (Oracle, SQL Server, PostgreSQL)",
+      "Zero-Downtime Replication, Failover & Multi-Region Backup DR",
+      "Omnichannel L1, L2 & L3 Technical Helpdesk & Ticket Escalation",
+      "Continuous Health Telemetry, Patch Management & Security Hardening"
+    ],
+    benefits: "99.999% system availability, sub-15 minute incident response, and worry-free operational stability."
+  }
+];
+
+// Modular Software Products Suite (Modeled after Zoho's celebrated ecosystem)
+export const productsData = [
+  {
+    id: "pulse-crm",
+    title: "Inspac PulseCRM",
+    tagline: "Omnichannel Customer Relationship & Sales Cloud",
+    category: "Sales & Marketing",
+    desc: "Complete 360° lead-to-deal management, AI sales pipeline forecasting, omnichannel communication, and automated deal workflows.",
+    zohoRef: "Inspired by Zoho CRM",
+    badgeColor: "bg-blue-600 text-white shadow-blue-500/25",
+    bgColor: "bg-[#edf5ff]",
+    accentColor: "#2563eb",
+    features: [
+      "Omnichannel Lead Capture (Email, Web, Phone, Chat)",
+      "Visual Drag-and-Drop Deal Pipeline & Stage Automation",
+      "Predictive AI Win-Probability & Forecasting Engine",
+      "Custom Workflow Rules, Quotas & Commission Tracking",
+      "Mobile CRM with Offline Sync for Field Sales Reps"
+    ],
+    benefits: "35% higher sales conversion, 4x faster deal velocity, and real-time executive revenue visibility."
+  },
+  {
+    id: "books-finance",
+    title: "Inspac Books & Finance",
+    tagline: "Enterprise Accounting & Tax Compliance Platform",
+    category: "Finance & Accounting",
+    desc: "Automated billing, multi-currency invoicing, tax compliance (GST, IRAS, VAT), cash flow tracking, and automated bank reconciliation.",
+    zohoRef: "Inspired by Zoho Books",
+    badgeColor: "bg-emerald-600 text-white shadow-emerald-500/25",
+    bgColor: "bg-[#ecfdf5]",
+    accentColor: "#059669",
+    features: [
+      "Multi-Currency Invoicing & Automated Recurring Subscriptions",
+      "Regional Tax Compliance & E-Invoicing (Singapore IRAS, India GST)",
+      "Automated Bank Feed Sync & One-Click Reconciliation",
+      "Expense Tracking, Purchase Orders & Vendor Portals",
+      "Real-Time P&L, Balance Sheet & Cashflow Intelligence"
+    ],
+    benefits: "Zero tax calculation errors, 60% faster billing cycles, and comprehensive audit-ready financial records."
+  },
+  {
+    id: "desk-support",
+    title: "Inspac Desk & Support",
+    tagline: "AI-Powered Omnichannel Customer Service Desk",
+    category: "Service & Support",
+    desc: "Unified customer support ticket management, SLA escalation matrices, AI agent assist, self-service knowledge base, and CSAT telemetry.",
+    zohoRef: "Inspired by Zoho Desk",
+    badgeColor: "bg-purple-600 text-white shadow-purple-500/25",
+    bgColor: "bg-[#f6f1ff]",
+    accentColor: "#9333ea",
+    features: [
+      "Omnichannel Ticket Ingestion (Email, WhatsApp, Web, Social)",
+      "Intelligent Skill-Based Ticket Routing & Auto-Assignments",
+      "SLA Escalation Timers & Automated Breach Alerts",
+      "AI Knowledge Base & Interactive Customer Self-Service Portal",
+      "Agent Productivity Metrics & Customer CSAT Analytics"
+    ],
+    benefits: "50% faster ticket resolution time, 99.8% SLA adherence, and significantly higher customer retention."
+  },
+  {
+    id: "people-hrms",
+    title: "Inspac People HRMS",
+    tagline: "Modern People Operations & Workforce Management",
+    category: "Human Resources",
+    desc: "End-to-end employee lifecycle, statutory payroll processing, biometric attendance, leave management, and 360° performance reviews.",
+    zohoRef: "Inspired by Zoho People",
+    badgeColor: "bg-orange-600 text-white shadow-orange-500/25",
+    bgColor: "bg-[#fff7ed]",
+    accentColor: "#ea580c",
+    features: [
+      "Employee Database, Digital Onboarding & Document Vault",
+      "Automated Regional Payroll with Tax & CPF/Provident Deductions",
+      "Geo-Fenced & Biometric Time Tracking, Shifts & Leave Approvals",
+      "360-Degree Performance Reviews, Goals & OKR Tracking",
+      "Employee Self-Service (ESS) Mobile & Web Portal"
+    ],
+    benefits: "Eliminates manual payroll errors, boosts employee satisfaction, and ensures 100% labor law compliance."
+  },
+  {
+    id: "analytics-bi",
+    title: "Inspac Analytics BI",
+    tagline: "Deep Visual Analytics & Business Intelligence Engine",
+    category: "Data & Analytics",
+    desc: "Transform enterprise databases and SaaS applications into stunning visual executive dashboards, predictive charts, and automated alerts.",
+    zohoRef: "Inspired by Zoho Analytics",
+    badgeColor: "bg-sky-600 text-white shadow-sky-500/25",
+    bgColor: "bg-[#f0f9ff]",
+    accentColor: "#0284c7",
+    features: [
+      "Connectors for 50+ Cloud Databases, ERPs & CRMs",
+      "Drag-and-Drop Visual Dashboard & KPI Scorecard Builder",
+      "Natural Language Querying (Ask AI for Metrics & Charts)",
+      "Automated Scheduled Email Reports & Anomaly Alert Triggers",
+      "Granular Role-Based Data Permissions & Embedded Analytics"
+    ],
+    benefits: "Instant executive visibility, real-time KPI tracking, and data democratization across leadership teams."
+  },
+  {
+    id: "creator-studio",
+    title: "Inspac Creator Studio",
+    tagline: "Enterprise Low-Code Custom Application Platform",
+    category: "Custom Engineering",
+    desc: "Build mission-critical internal business applications, tailored approval workflows, and mobile forms with 10x speed using low-code tools.",
+    zohoRef: "Inspired by Zoho Creator",
+    badgeColor: "bg-indigo-600 text-white shadow-indigo-500/25",
+    bgColor: "bg-[#f1edff]",
+    accentColor: "#6366f1",
+    features: [
+      "Drag-and-Drop Visual Schema & UI Form Designer",
+      "Event-Driven Business Logic & Validation Scripting",
+      "Automatic Multi-Platform Deployment (Web, iOS, Android)",
+      "Granular Access Controls, Audit Logs & Data Encryption",
+      "One-Click RESTful API Connectors to Enterprise Systems"
+    ],
+    benefits: "Build enterprise apps in days rather than months, drastically lowering custom software development costs."
+  },
+  {
+    id: "vault-directory",
+    title: "Inspac Vault & Directory",
+    tagline: "Zero-Trust Secrets Management & Identity Governance",
+    category: "Security & Identity",
+    desc: "Secure enterprise password repository, Single Sign-On (SSO), multi-factor authentication (MFA), and audit logs for PCI-DSS compliance.",
+    zohoRef: "Inspired by Zoho Vault / Directory",
+    badgeColor: "bg-rose-700 text-white shadow-rose-600/25",
+    bgColor: "bg-[#fff0f4]",
+    accentColor: "#be123c",
+    features: [
+      "End-to-End Encrypted (AES-256) Enterprise Password & Key Vault",
+      "SAML 2.0 / OAuth Single Sign-On (SSO) & Biometric 2FA",
+      "Role-Based Access Control (RBAC) & Privileged Access Management",
+      "Automated Credential Rotation & Session Video Recording",
+      "Immutable Audit Trails for PCI-DSS 4.0 & ISO 27001 Audits"
+    ],
+    benefits: "Eliminates credential leakage, ensures strict identity governance, and accelerates compliance audits."
+  },
+  {
+    id: "flow-automation",
+    title: "Inspac Flow Automation",
+    tagline: "Event-Driven Cross-Application Integration Bus",
+    category: "Integration & iPaaS",
+    desc: "Connect disparate ERPs, CRMs, cloud databases, and SaaS tools with visual trigger-action logic without writing complex custom code.",
+    zohoRef: "Inspired by Zoho Flow",
+    badgeColor: "bg-amber-500 text-white shadow-amber-500/25",
+    bgColor: "bg-[#fff5e9]",
+    accentColor: "#f59e0b",
+    features: [
+      "Pre-Built Connectors for 200+ Enterprise Cloud Applications",
+      "Visual Drag-and-Drop Multi-Step Workflow Designer",
+      "Webhook Listeners, Data Transformers & JSON Formatters",
+      "Guaranteed Event Delivery with Automatic Retry Queues",
+      "Detailed Execution Logs & Real-Time Failure Notifications"
+    ],
+    benefits: "Seamlessly breaks down data silos between ERP, CRM, and cloud services without manual batch jobs."
   }
 ];
 
 export const trainingCourses = [
   {
-    id: "tr-data-science",
-    title: "Executive Data Science & Analytics Masterclass",
-    category: "Data & Tech",
-    duration: "4 Weeks (Interactive)",
-    level: "Intermediate to Advanced",
-    summary: "Master practical data analytics, SQL/Python data pipelines, and machine learning models for corporate decision-making.",
+    id: "tr-cloud-devsecops",
+    title: "Enterprise Cloud Engineering & DevSecOps Masterclass",
+    category: "Cloud & DevSecOps",
+    duration: "6 Weeks (Hands-on Labs)",
+    level: "Engineers & Architects",
+    summary: "Master multi-cloud architecture (AWS/GCP/Azure), Kubernetes orchestration, Terraform IaC, and automated CI/CD pipelines.",
     modules: [
-      "Data Architecture & Data Warehousing Fundamentals",
-      "Exploratory Data Analysis with Python & Pandas",
-      "Building Predictive Models with Scikit-Learn",
-      "Creating Executive Dashboards in PowerBI & Tableau"
+      "Multi-Cloud Architecture & Zero-Trust Landing Zones",
+      "Containerization & Microservices Orchestration with Kubernetes",
+      "Infrastructure Automation with Terraform & GitOps",
+      "Automated DevSecOps Pipeline Security & FinOps Governance"
     ]
   },
   {
-    id: "tr-cloud-devops",
-    title: "Cloud Engineering & DevOps Practitioner Program",
-    category: "Cloud & Ops",
-    duration: "6 Weeks (Hands-on Labs)",
-    level: "All Levels",
-    summary: "Hands-on experience in Docker, Kubernetes, Infrastructure as Code with Terraform, and GitHub Actions CI/CD pipelines.",
+    id: "tr-data-ai",
+    title: "Enterprise AI & Modern Data Lakehouse Masterclass",
+    category: "Data & AI",
+    duration: "5 Weeks (Interactive)",
+    level: "Intermediate to Advanced",
+    summary: "Construct high-throughput data pipelines, Snowflake/BigQuery lakehouses, and integrate Generative AI business models.",
     modules: [
-      "Cloud Fundamentals (AWS, GCP, Azure)",
-      "Containerization & Microservices Architecture",
-      "Terraform Infrastructure Automation",
-      "CI/CD Pipeline Design & Security Scanning"
+      "Modern Data Lakehouse Architecture (Snowflake, BigQuery, Databricks)",
+      "Automated ELT Data Pipelines with dbt, Airflow & Python",
+      "Enterprise Generative AI, RAG Architectures & LLM Fine-Tuning",
+      "Executive Data Storytelling & Real-Time BI Dashboards"
     ]
   },
   {
     id: "tr-pci-dss",
-    title: "PCI-DSS v4.0 Implementation & Audit Preparation",
-    category: "Security & Compliance",
-    duration: "2 Weeks (Intensive)",
-    level: "Security Professionals",
-    summary: "In-depth breakdown of PCI-DSS 4.0 requirements, CDE scope reduction techniques, control validation, and audit readiness.",
+    title: "PCI-DSS v4.0 Implementation & QSA Audit Readiness",
+    category: "Security & Governance",
+    duration: "3 Weeks (Intensive)",
+    level: "Security Officers & Auditors",
+    summary: "Comprehensive breakdown of PCI-DSS 4.0 requirements, CDE scope reduction, firewall segmentation, and AOC attestation.",
     modules: [
-      "Understanding PCI-DSS 4.0 Core Requirements",
-      "Scoping & Network Segmentation Strategies",
-      "Implementing Strong Access Control & Encryption",
-      "Conducting Internal Risk Assessments & Mock Audits"
+      "Deep Dive into PCI-DSS 4.0 Core Requirements & Timelines",
+      "Network Segmentation, Scope Reduction & CDE Isolation",
+      "Access Control, Strong Cryptography & Key Management",
+      "Mock Audits, Evidence Gathering & QSA Sign-off Protocol"
     ]
   },
   {
-    id: "tr-grc-auditing",
-    title: "IT Governance, Risk & Auditing Fundamentals",
-    category: "Security & Compliance",
-    duration: "3 Weeks",
-    level: "Managers & Auditors",
-    summary: "Comprehensive framework covering ISO 27001 implementation, risk scoring matrices, and IT General Controls (ITGC) testing.",
+    id: "tr-digital-operations",
+    title: "Intelligent Process Automation & RPA Practitioner",
+    category: "Process & Automation",
+    duration: "4 Weeks (Hands-on)",
+    level: "Managers & Developers",
+    summary: "Design and implement robotic process automation, intelligent document processing, and Lean Six Sigma workflow re-engineering.",
     modules: [
-      "Information Security Governance Frameworks",
-      "Risk Identification & Threat Modeling",
-      "ITGC Audit Planning & Sample Evidence Collection",
-      "Reporting Audit Findings to Executive Boards"
+      "Business Process Re-engineering (BPR) & Bottleneck Identification",
+      "RPA Bot Development (UiPath / Power Automate)",
+      "Intelligent Document Processing (IDP) & Cognitive OCR",
+      "Deploying and Monitoring Autonomous AI Workflows at Scale"
     ]
   }
 ];
 
 export const openPositions = [
   {
-    id: "job-devops",
-    title: "Senior Cloud & DevOps Architect",
+    id: "job-cloud-architect",
+    title: "Lead Cloud & DevSecOps Architect",
     location: "Singapore / Hybrid",
     type: "Full-Time",
-    department: "Cloud Operations",
-    summary: "Design and implement scalable multi-cloud infrastructure, Kubernetes clusters, and automated CI/CD pipelines for enterprise clients.",
+    department: "Cloud Transformation",
+    summary: "Architect and lead multi-cloud migrations, Kubernetes container platforms, and automated DevSecOps pipelines for tier-1 clients.",
     requirements: [
-      "5+ years experience in AWS or GCP cloud architecture",
-      "Expertise in Terraform, Docker, Kubernetes, and Helm",
-      "Strong understanding of DevSecOps & security scanning"
+      "6+ years experience in AWS, GCP, or Azure enterprise architecture",
+      "Expertise in Terraform, Kubernetes, Docker, and CI/CD security scanning",
+      "Experience with Cloud FinOps and high-availability systems"
     ]
   },
   {
-    id: "job-grc",
-    title: "GRC & PCI-DSS Compliance Consultant",
-    location: "Singapore / Australia (Remote Option)",
+    id: "job-grc-lead",
+    title: "Principal Cybersecurity & PCI-DSS Consultant",
+    location: "Singapore / Australia (Hybrid)",
     type: "Full-Time",
-    department: "Governance & Security",
-    summary: "Guide clients through PCI-DSS 4.0 attestation, ISO 27001 certifications, and security control audits.",
+    department: "Security & Governance",
+    summary: "Lead PCI-DSS v4.0 gap assessments, ISO 27001 certifications, and QSA audit liaisons across APAC financial institutions.",
     requirements: [
-      "3+ years in IT audit, PCI-DSS, or ISO 27001 advisory",
-      "CISA, CRISC, or CISM certification preferred",
-      "Strong client consulting & report writing skills"
+      "5+ years in IT audit, PCI-DSS compliance, or ISO 27001 advisory",
+      "CISA, CRISC, CISM, or QSA credentials strongly preferred",
+      "Proven track record guiding enterprises to successful AOC sign-off"
     ]
   },
   {
-    id: "job-data-engineer",
-    title: "Senior Data Engineer / Data Scientist",
-    location: "India / Offshore Center",
+    id: "job-ai-engineer",
+    title: "Senior AI & Data Lakehouse Engineer",
+    location: "India / Offshore Tech Center",
     type: "Full-Time",
-    department: "Data & Data Science",
-    summary: "Build high-throughput data pipelines, BigQuery data models, and predictive analytics algorithms for global projects.",
+    department: "AI & Data Science",
+    summary: "Engineer high-throughput streaming pipelines, Snowflake/BigQuery data lakehouses, and enterprise Generative AI integrations.",
     requirements: [
-      "Proficiency in Python, SQL, PySpark, and Airflow",
-      "Experience with BigQuery, Snowflake, or Databricks",
-      "Solid foundation in machine learning and data modeling"
+      "Proficiency in Python, SQL, Apache Spark, dbt, and Airflow",
+      "Hands-on experience with Snowflake, Databricks, or BigQuery",
+      "Practical experience deploying LLM fine-tuning or RAG architectures"
     ]
   }
 ];
@@ -307,42 +448,42 @@ export const openPositions = [
 export const assessmentQuestions = [
   {
     id: 1,
-    question: "How does your organization handle cardholder payment data or sensitive PII?",
+    question: "How does your organization currently handle cardholder payment data or sensitive PII?",
     options: [
-      { label: "Fully tokenized through 3rd party gateways (No local storage)", score: 25 },
-      { label: "Stored in isolated databases with strong encryption at rest", score: 20 },
-      { label: "Stored in standard databases with limited access controls", score: 10 },
-      { label: "Unsure / Stored in plain text / legacy files", score: 0 }
+      { label: "Fully tokenized via 3rd party gateways with zero local CDE footprint", score: 25 },
+      { label: "Isolated in segmented databases with AES-256 encryption at rest and in transit", score: 20 },
+      { label: "Stored in standard internal databases with basic role-based access controls", score: 10 },
+      { label: "Stored in legacy unsegmented databases or plain text files", score: 0 }
     ]
   },
   {
     id: 2,
-    question: "What is the current status of your Cloud Infrastructure (AWS / GCP / Azure)?",
+    question: "What is the maturity level of your Cloud & DevOps infrastructure (AWS / GCP / Azure)?",
     options: [
-      { label: "Fully automated with IaC (Terraform) and multi-region backup", score: 25 },
-      { label: "Cloud-hosted with manual deployments & basic monitoring", score: 15 },
-      { label: "Hybrid / Migrating legacy workloads to cloud", score: 10 },
-      { label: "On-premise servers with no active cloud disaster recovery", score: 5 }
+      { label: "Fully automated with Terraform IaC, containerized Kubernetes & multi-region DR", score: 25 },
+      { label: "Cloud-hosted with automated CI/CD pipelines and active health monitoring", score: 18 },
+      { label: "Hybrid cloud with manual deployments and periodic backups", score: 10 },
+      { label: "On-premise legacy servers with no automated disaster recovery", score: 0 }
     ]
   },
   {
     id: 3,
-    question: "How frequently does your organization perform security audits & penetration tests?",
+    question: "How are enterprise business processes, data, and ERP systems unified?",
     options: [
-      { label: "Quarterly automated scans + annual third-party audit", score: 25 },
-      { label: "Annually before major compliance reviews", score: 15 },
-      { label: "Only when required by clients or partners", score: 5 },
-      { label: "Never or rarely audited", score: 0 }
+      { label: "Integrated modern ERP/CRM with real-time event brokers & automated BI dashboards", score: 25 },
+      { label: "Centralized database with automated ETL pipelines and scheduled reports", score: 18 },
+      { label: "Siloed applications requiring periodic manual data export and reconciliation", score: 10 },
+      { label: "Ad-hoc spreadsheets and disconnected legacy software tools", score: 0 }
     ]
   },
   {
     id: 4,
-    question: "Does your team have written GRC policies & incident response plans?",
+    question: "What is your current security audit and PCI-DSS 4.0 / ISO 27001 governance posture?",
     options: [
-      { label: "Yes, regularly updated and tested with table-top drills", score: 25 },
-      { label: "Yes, documented but rarely updated", score: 15 },
-      { label: "In-progress / Drafting stage", score: 10 },
-      { label: "No formal incident response policies", score: 0 }
+      { label: "Continuous automated vulnerability scanning + annual third-party QSA/ISO audits", score: 25 },
+      { label: "Documented GRC policies with annual internal security reviews", score: 18 },
+      { label: "Reactive security testing conducted only during partner or client vendor audits", score: 8 },
+      { label: "No formal GRC policies, incident response plans, or compliance audits", score: 0 }
     ]
   }
 ];

@@ -42,63 +42,7 @@ import {
 import { companyInfo, servicesData } from '../data/companyData';
 
 export default function HomePage({ onOpenContact }) {
-  const [activeCapabilityTab, setActiveCapabilityTab] = useState('data');
   const [selectedService, setSelectedService] = useState(null);
-
-  const capabilities = {
-    data: {
-      title: "Data & Advanced Data Science",
-      subtitle: "Predictive Analytics, Data Lakes & Executive BI Dashboards",
-      description: "Transform raw enterprise data into predictive forecasting models, real-time analytics, and clean ETL data pipelines built on BigQuery, Databricks, and Snowflake.",
-      features: [
-        "Real-Time Business Intelligence & Automated Dashboards",
-        "Predictive Customer Analytics & Machine Learning Models",
-        "BigQuery, Snowflake & Databricks Modern Data Lakes",
-        "Data Governance, Lineage Mapping & Schema Quality",
-        "Sub-Second High-Throughput ETL / ELT Pipeline Sync"
-      ],
-      metrics: "Sub-second query response & 40% reduction in reporting latency."
-    },
-    cloud: {
-      title: "Cloud Engineering & DevOps Automation",
-      subtitle: "Multi-Cloud Strategy, Kubernetes & Terraform IaC",
-      description: "Accelerate software delivery velocity with automated CI/CD infrastructure, cloud-native containerization (Docker/Kubernetes), and multi-cloud optimization across AWS, GCP, and Azure.",
-      features: [
-        "Infrastructure as Code (IaC) via Terraform & CloudFormation",
-        "Automated DevSecOps CI/CD Pipelines (GitHub Actions, Jenkins)",
-        "Enterprise Containerization & Kubernetes Cluster Scaling",
-        "Multi-Cloud Architecture & Cloud FinOps Optimization",
-        "Zero-Downtime Migration & Auto-Scaling Rules"
-      ],
-      metrics: "10x faster release velocity & optimized cloud infrastructure spend."
-    },
-    erp: {
-      title: "ERP & Enterprise Business Solutions",
-      subtitle: "SAP, Oracle & Custom Workflow Integration",
-      description: "Unify finance, supply chain, HR, and client services with tailored ERP implementations, cross-module workflow synchronization, and custom API middleware connectors.",
-      features: [
-        "SAP & Oracle ERP Enterprise Module Engineering",
-        "Cross-Departmental Real-Time Financial & Operational Reporting",
-        "Supply Chain & Inventory Workflow Automation",
-        "Legacy ERP Modernization & Migration",
-        "API Middleware Connectors & Webhook Integration"
-      ],
-      metrics: "Eliminates operational silos & lowers administrative overhead by 35%."
-    },
-    grc: {
-      title: "GRC & PCI-DSS 4.0 Compliance Advisory",
-      subtitle: "ISO 27001, ITGC Testing & Cardholder Data Security",
-      description: "Align your IT operations with international standards, ISO 27001, NIST frameworks, and PCI-DSS 4.0 standards. Protect cardholder data environments (CDE) and ensure audit readiness.",
-      features: [
-        "PCI-DSS v4.0 Gap Analysis & Scope Reduction Advisory",
-        "Cardholder Data Environment (CDE) Network Segmentation",
-        "ISO 27001 & NIST Security Control Mapping",
-        "IT General Controls (ITGC) & Third-Party Vendor Audits",
-        "Attestation of Compliance (AOC) Support & QSA Audit Prep"
-      ],
-      metrics: "100% audit pass rate across PCI-DSS & ISO 27001 reviews."
-    }
-  };
 
   return (
     <div className="space-y-24 pb-24 bg-[#04081c]">
@@ -126,8 +70,12 @@ export default function HomePage({ onOpenContact }) {
       />
 
       {/* 5. Practice Areas & Specializations (Matching Reference Design) */}
-      <section className="py-20 sm:py-28 bg-[#151515] text-[#ece3d4] relative overflow-hidden font-serif border-y border-[#282420]">
-        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
+      <section className="py-20 sm:py-28 bg-gradient-to-b from-[#030712] via-[#091338] to-[#04081c] text-[#e2e8f0] relative overflow-hidden font-serif border-y border-cyan-900/40">
+        {/* Glowing Ambient Backdrop Lights */}
+        <div className="absolute -top-32 -left-32 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16 relative z-10">
           
           {/* Top Header Grid: 2 Columns */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start justify-between">
@@ -135,16 +83,16 @@ export default function HomePage({ onOpenContact }) {
             {/* Left Column: Huge 08 Number + Line + Practice Areas Heading */}
             <div className="lg:col-span-6 space-y-2">
               <span 
-                className="text-7xl sm:text-8xl lg:text-[110px] font-serif text-[#f3ebd9] font-normal leading-none tracking-tight block select-none"
+                className="text-7xl sm:text-8xl lg:text-[110px] font-serif text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-cyan-400 to-blue-400 font-normal leading-none tracking-tight block select-none drop-shadow-[0_0_25px_rgba(6,182,212,0.25)]"
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
                 08
               </span>
 
-              <div className="w-full max-w-[320px] sm:max-w-[380px] h-[1px] bg-[#3a342d] my-4" />
+              <div className="w-full max-w-[320px] sm:max-w-[380px] h-[1px] bg-gradient-to-r from-cyan-500/60 via-blue-500/40 to-transparent my-4" />
 
               <h2 
-                className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#f3ebd9] font-normal tracking-normal"
+                className="text-3xl sm:text-4xl lg:text-5xl font-serif text-white font-normal tracking-normal"
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
                 Practice Areas
@@ -154,169 +102,87 @@ export default function HomePage({ onOpenContact }) {
             {/* Right Column: Editorial Paragraph */}
             <div className="lg:col-span-6 lg:pt-6">
               <p 
-                className="text-xs sm:text-sm lg:text-[15px] text-[#b8b0a3] leading-[1.85] font-serif font-normal max-w-xl"
+                className="text-xs sm:text-sm lg:text-[15px] text-slate-300/90 leading-[1.85] font-serif font-normal max-w-xl"
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
-                We have carefully chosen our areas of practice and always aim to attend to our client's most sensitive and critical issues. Every matter is addressed by teams that function as a system, generally including two or more specialist areas and always supported by other areas of knowledge.
+                Our specialized practice areas combine multi-disciplinary engineering and compliance expertise to address your enterprise's most critical digital transformation, security, and infrastructure goals.
               </p>
             </div>
 
           </div>
 
-          {/* 4-Column High-Contrast Monochrome Gallery Grid */}
+          {/* 4-Column High-Contrast Gallery Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             
-            {/* Card 1: Data Science */}
-            <div 
-              onClick={() => setActiveCapabilityTab('data')}
-              className="group cursor-pointer space-y-3 select-none"
-            >
-              <div className="aspect-[3/4] w-full overflow-hidden bg-[#202020] relative">
+            {/* Card 1: Digital Engineering */}
+            <div className="group cursor-pointer space-y-3 select-none">
+              <div className="aspect-[3/4] w-full overflow-hidden bg-slate-900/80 border border-cyan-500/20 rounded-xl relative shadow-lg shadow-cyan-950/40 group-hover:border-cyan-400/50 transition-all duration-300">
                 <img 
-                  src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80" 
-                  alt="Data & Advanced Data Science" 
-                  className={`w-full h-full object-cover grayscale contrast-125 brightness-90 transition-all duration-700 ease-out group-hover:scale-105 group-hover:contrast-100 group-hover:brightness-100 ${
-                    activeCapabilityTab === 'data' ? 'scale-105 contrast-100 brightness-100 ring-2 ring-amber-200/50' : ''
-                  }`}
+                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" 
+                  alt="Digital Engineering & App Modernization" 
+                  className="w-full h-full object-cover grayscale contrast-125 brightness-90 transition-all duration-700 ease-out group-hover:scale-105 group-hover:contrast-100 group-hover:brightness-100"
                 />
               </div>
               <h3 
-                className={`text-xs sm:text-sm font-serif transition-colors duration-200 leading-snug ${
-                  activeCapabilityTab === 'data' ? 'text-amber-200 font-semibold' : 'text-[#ece3d4] group-hover:text-amber-200'
-                }`}
+                className="text-xs sm:text-sm font-serif text-slate-200 group-hover:text-cyan-300 transition-colors duration-200 leading-snug"
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
-                Competition and Regulation (Data & AI)
+                Digital Engineering & App Modernization
               </h3>
             </div>
 
             {/* Card 2: Cloud DevOps */}
-            <div 
-              onClick={() => setActiveCapabilityTab('cloud')}
-              className="group cursor-pointer space-y-3 select-none"
-            >
-              <div className="aspect-[3/4] w-full overflow-hidden bg-[#202020] relative">
+            <div className="group cursor-pointer space-y-3 select-none">
+              <div className="aspect-[3/4] w-full overflow-hidden bg-slate-900/80 border border-cyan-500/20 rounded-xl relative shadow-lg shadow-cyan-950/40 group-hover:border-cyan-400/50 transition-all duration-300">
                 <img 
-                  src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" 
-                  alt="Cloud Engineering & DevOps" 
-                  className={`w-full h-full object-cover grayscale contrast-125 brightness-90 transition-all duration-700 ease-out group-hover:scale-105 group-hover:contrast-100 group-hover:brightness-100 ${
-                    activeCapabilityTab === 'cloud' ? 'scale-105 contrast-100 brightness-100 ring-2 ring-amber-200/50' : ''
-                  }`}
+                  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" 
+                  alt="Cloud Transformation & DevSecOps" 
+                  className="w-full h-full object-cover grayscale contrast-125 brightness-90 transition-all duration-700 ease-out group-hover:scale-105 group-hover:contrast-100 group-hover:brightness-100"
                 />
               </div>
               <h3 
-                className={`text-xs sm:text-sm font-serif transition-colors duration-200 leading-snug ${
-                  activeCapabilityTab === 'cloud' ? 'text-amber-200 font-semibold' : 'text-[#ece3d4] group-hover:text-amber-200'
-                }`}
+                className="text-xs sm:text-sm font-serif text-slate-200 group-hover:text-cyan-300 transition-colors duration-200 leading-snug"
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
-                Environment and Natural Resources (Cloud Infrastructure)
+                Cloud Transformation & DevSecOps
               </h3>
             </div>
 
-            {/* Card 3: GRC & PCI-DSS */}
-            <div 
-              onClick={() => setActiveCapabilityTab('grc')}
-              className="group cursor-pointer space-y-3 select-none"
-            >
-              <div className="aspect-[3/4] w-full overflow-hidden bg-[#202020] relative">
+            {/* Card 3: AI & Data Lakehouse */}
+            <div className="group cursor-pointer space-y-3 select-none">
+              <div className="aspect-[3/4] w-full overflow-hidden bg-slate-900/80 border border-cyan-500/20 rounded-xl relative shadow-lg shadow-cyan-950/40 group-hover:border-cyan-400/50 transition-all duration-300">
                 <img 
-                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" 
-                  alt="PCI-DSS 4.0 & Cyber Governance" 
-                  className={`w-full h-full object-cover grayscale contrast-125 brightness-90 transition-all duration-700 ease-out group-hover:scale-105 group-hover:contrast-100 group-hover:brightness-100 ${
-                    activeCapabilityTab === 'grc' ? 'scale-105 contrast-100 brightness-100 ring-2 ring-amber-200/50' : ''
-                  }`}
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" 
+                  alt="Enterprise AI & Data Lakehouse" 
+                  className="w-full h-full object-cover grayscale contrast-125 brightness-90 transition-all duration-700 ease-out group-hover:scale-105 group-hover:contrast-100 group-hover:brightness-100"
                 />
               </div>
               <h3 
-                className={`text-xs sm:text-sm font-serif transition-colors duration-200 leading-snug ${
-                  activeCapabilityTab === 'grc' ? 'text-amber-200 font-semibold' : 'text-[#ece3d4] group-hover:text-amber-200'
-                }`}
+                className="text-xs sm:text-sm font-serif text-slate-200 group-hover:text-cyan-300 transition-colors duration-200 leading-snug"
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
-                Public Law and Government (GRC & PCI-DSS 4.0)
+                Enterprise AI & Data Lakehouse
               </h3>
             </div>
 
-            {/* Card 4: Enterprise Systems & ERP */}
-            <div 
-              onClick={() => setActiveCapabilityTab('erp')}
-              className="group cursor-pointer space-y-3 select-none"
-            >
-              <div className="aspect-[3/4] w-full overflow-hidden bg-[#202020] relative">
+            {/* Card 4: Cybersecurity & GRC */}
+            <div className="group cursor-pointer space-y-3 select-none">
+              <div className="aspect-[3/4] w-full overflow-hidden bg-slate-900/80 border border-cyan-500/20 rounded-xl relative shadow-lg shadow-cyan-950/40 group-hover:border-cyan-400/50 transition-all duration-300">
                 <img 
-                  src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80" 
-                  alt="Enterprise Systems & ERP" 
-                  className={`w-full h-full object-cover grayscale contrast-125 brightness-90 transition-all duration-700 ease-out group-hover:scale-105 group-hover:contrast-100 group-hover:brightness-100 ${
-                    activeCapabilityTab === 'erp' ? 'scale-105 contrast-100 brightness-100 ring-2 ring-amber-200/50' : ''
-                  }`}
+                  src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" 
+                  alt="Cybersecurity & PCI-DSS 4.0 Advisory" 
+                  className="w-full h-full object-cover grayscale contrast-125 brightness-90 transition-all duration-700 ease-out group-hover:scale-105 group-hover:contrast-100 group-hover:brightness-100"
                 />
               </div>
               <h3 
-                className={`text-xs sm:text-sm font-serif transition-colors duration-200 leading-snug ${
-                  activeCapabilityTab === 'erp' ? 'text-amber-200 font-semibold' : 'text-[#ece3d4] group-hover:text-amber-200'
-                }`}
+                className="text-xs sm:text-sm font-serif text-slate-200 group-hover:text-cyan-300 transition-colors duration-200 leading-snug"
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
-                Telecommunications, Media & Technology (TMT & ERP)
+                Cybersecurity & PCI-DSS 4.0 Advisory
               </h3>
             </div>
 
           </div>
-
-          {/* Expanded Capability Detail Drawer (When clicked) */}
-          {capabilities[activeCapabilityTab] && (
-            <div className="mt-10 p-6 sm:p-10 rounded-2xl bg-[#1e1e1e] border border-[#38322a] space-y-6 animate-fadeIn">
-              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-[#342e26]">
-                <div>
-                  <span className="text-xs font-mono font-semibold text-amber-300/80 uppercase tracking-widest block mb-1">
-                    {capabilities[activeCapabilityTab].subtitle}
-                  </span>
-                  <h3 
-                    className="text-2xl sm:text-3xl font-serif text-[#f3ebd9]"
-                    style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-                  >
-                    {capabilities[activeCapabilityTab].title}
-                  </h3>
-                </div>
-
-                <div className="px-4 py-2 rounded-lg bg-[#28241e] border border-[#443c32] text-xs font-mono text-amber-200">
-                  Result: {capabilities[activeCapabilityTab].metrics}
-                </div>
-              </div>
-
-              <p className="text-xs sm:text-sm text-[#c8c0b3] leading-relaxed font-sans font-normal">
-                {capabilities[activeCapabilityTab].description}
-              </p>
-
-              {/* Features List */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 pt-2">
-                {capabilities[activeCapabilityTab].features.map((feat, i) => (
-                  <div key={i} className="p-3 rounded-lg bg-[#24201a] border border-[#383028] flex items-start space-x-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <span className="text-xs font-sans text-[#e6decb]">{feat}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="pt-4 flex flex-wrap gap-4 font-sans">
-                <Link
-                  to="/services"
-                  className="px-6 py-3 rounded-lg bg-[#ece3d4] text-[#141414] font-bold text-xs hover:bg-white transition-all flex items-center space-x-2 shadow-md"
-                >
-                  <span>Explore Full Specialization Scope</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                
-                <button
-                  onClick={() => onOpenContact(`Inquiry: ${capabilities[activeCapabilityTab].title}`)}
-                  className="px-6 py-3 rounded-lg bg-[#28241e] border border-[#443c32] text-[#ece3d4] hover:text-white hover:border-amber-200/50 text-xs font-semibold transition-colors cursor-pointer"
-                >
-                  <span>Schedule Consultation</span>
-                </button>
-              </div>
-            </div>
-          )}
 
         </div>
       </section>

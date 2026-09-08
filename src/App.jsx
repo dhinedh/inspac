@@ -12,6 +12,7 @@ import CompliancePage from './pages/CompliancePage';
 import TrainingPage from './pages/TrainingPage';
 import CareersPage from './pages/CareersPage';
 import ContactPage from './pages/ContactPage';
+import BuyersGuidePage from './pages/BuyersGuidePage';
 
 import { CheckCircle2, X } from 'lucide-react';
 
@@ -90,11 +91,15 @@ function AppContent() {
             path="/contact" 
             element={<ContactPage prefillTopic={contactPrefill} onToast={showToast} />} 
           />
+          <Route 
+            path="/buyers-guide" 
+            element={<BuyersGuidePage onOpenContact={handleOpenContact} />} 
+          />
         </Routes>
       </main>
 
       {/* Global Footer */}
-      <Footer />
+      <Footer onOpenContact={handleOpenContact} />
     </div>
   );
 }

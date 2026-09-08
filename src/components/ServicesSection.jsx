@@ -1,20 +1,22 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  FileText, 
   Code2, 
-  Headphones, 
-  Users, 
-  Palette, 
-  Megaphone, 
-  TrendingUp, 
+  Cloud, 
+  BarChart3, 
+  ShieldCheck, 
+  Layers, 
+  GitPullRequest, 
+  CheckCircle2, 
+  Database, 
   LayoutGrid, 
   ArrowRight,
   ChevronRight,
-  ChevronLeft
+  ChevronLeft,
+  Sparkles
 } from 'lucide-react';
 
-// Industry sectors data for mode="industries"
+// Industry sectors data for mode="industries" (Inspired by HCLTech & CTS Industry Verticals)
 const industriesData = [
   {
     id: 'fintech',
@@ -29,7 +31,7 @@ const industriesData = [
     id: 'healthcare',
     title: 'Healthcare & Life Sciences',
     category: 'HEALTH & LIFE SCIENCES',
-    subtitle: 'PDPA / HIPAA · Clinical Data Vaults',
+    subtitle: 'PDPA / HIPAA · Encrypted Clinical Data Vaults',
     description: 'Strictly compliant clinical data architectures, encrypted electronic patient record (EHR) databases, and high-throughput predictive diagnostics.',
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80',
     link: '/clients'
@@ -38,16 +40,16 @@ const industriesData = [
     id: 'ecommerce',
     title: 'Retail & Enterprise E-Commerce',
     category: 'COMMERCE & RETAIL',
-    subtitle: 'Omnichannel ERP · Cloud Auto-Scaling',
+    subtitle: 'Omnichannel ERP · Flash-Sale Auto-Scaling',
     description: 'High-scale cloud infrastructures auto-scaling for peak flash-sale volumes, bi-directional ERP inventory sync, and real-time customer analytics.',
     image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80',
     link: '/clients'
   },
   {
-    id: 'logistics',
-    title: 'Supply Chain & Logistics',
-    category: 'LOGISTICS & SUPPLY CHAIN',
-    subtitle: 'RPA Automation · Fleet GPS Telemetry',
+    id: 'manufacturing',
+    title: 'Manufacturing & Smart Supply Chain',
+    category: 'MANUFACTURING & LOGISTICS',
+    subtitle: 'RPA Automation · Telemetry & SAP ERP',
     description: 'Process re-engineering and RPA for automated customs dispatch, multi-carrier invoice settlement, and real-time fleet telemetry pipelines.',
     image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80',
     link: '/clients'
@@ -65,140 +67,140 @@ const industriesData = [
     id: 'telecom',
     title: 'Telecommunications & High-Tech',
     category: 'TELECOM & HIGH-TECH',
-    subtitle: '5G Infrastructure · Real-Time Edge',
+    subtitle: '5G Infrastructure · Real-Time Edge Microservices',
     description: 'Carrier-grade network infrastructure, real-time message queuing, microservices orchestration, and edge computing deployments.',
     image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80',
     link: '/clients'
   }
 ];
 
-// 7 Core Services matching exact reference screenshot
+// 7 Flagship Enterprise Services (Modeled after HCLTech & Cognizant/CTS Enterprise Practices)
 const servicesCards = [
   {
     num: '01',
-    id: 'project-management',
-    title: 'Project Management',
-    category: 'Management & PMO',
-    icon: FileText,
+    id: 'digital-engineering',
+    title: 'Digital Engineering & App Modernization',
+    category: 'Digital Engineering',
+    icon: Code2,
     badgeBg: 'bg-blue-50 text-[#0052cc]',
-    desc: 'Plan, track and deliver projects efficiently with advanced tools and proven methodologies.',
-    image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80',
-    details: 'Our enterprise project management service covers Agile & Scrum transformation, PMO setup, Gantt resource allocation, risk mitigation, and automated milestone tracking.',
+    desc: 'Build resilient cloud-native web and mobile platforms with modern distributed microservices architectures.',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80',
+    details: 'Full-stack engineering, legacy monolith decoupling, high-speed frontend design systems (React, Next.js), and high-throughput RESTful/GraphQL microservices built for enterprise scale.',
     features: [
-      'Agile, Scrum & Kanban Project Governance',
-      'Resource Planning & Gantt Chart Tracking',
-      'Risk Assessment & Mitigation Frameworks',
-      'Automated Executive Milestone Dashboards'
+      'Cloud-Native Web & Mobile Architecture',
+      'Monolith Decoupling & Microservices Migration',
+      'High-Throughput REST & GraphQL API Gateways',
+      'Event-Driven Distributed Messaging Brokers'
     ],
-    benefits: 'On-time delivery, eliminated budget overruns, and transparent project tracking across engineering teams.'
+    benefits: '70% faster time-to-market, sub-second API latency, and frictionless horizontal scalability.'
   },
   {
     num: '02',
-    id: 'web-mobile-dev',
-    title: 'Web & Mobile Development',
-    category: 'Software Engineering',
-    icon: Code2,
-    badgeBg: 'bg-purple-50 text-purple-600',
-    desc: 'Build modern, scalable and user-friendly websites and mobile applications.',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80',
-    details: 'Full-stack Web and iOS/Android app engineering utilizing React, React Native, Next.js, Node.js, and cloud microservices tailored for high performance.',
+    id: 'cloud-devsecops',
+    title: 'Cloud Transformation & DevSecOps',
+    category: 'Cloud & Infrastructure',
+    icon: Cloud,
+    badgeBg: 'bg-indigo-50 text-indigo-600',
+    desc: 'Automate multi-cloud infrastructure with Terraform, Kubernetes, and automated zero-trust DevSecOps.',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80',
+    details: 'Modeled after HCL CloudSMART and CTS Cloud 360, we implement secure multi-cloud landing zones (AWS, Azure, GCP), automated CI/CD pipelines, and cloud FinOps cost governance.',
     features: [
-      'Full-Stack Web Applications (React, Next.js, Node.js)',
-      'Cross-Platform iOS & Android Mobile Apps',
-      'High-Performance RESTful & GraphQL APIs',
-      'Cloud Microservices Architecture'
+      'Multi-Cloud Strategy & Landing Zones (AWS/Azure/GCP)',
+      'Terraform Infrastructure as Code (IaC)',
+      'Enterprise Kubernetes (EKS/GKE) & Service Mesh',
+      'Automated DevSecOps Pipelines & FinOps Governance'
     ],
-    benefits: 'Sub-second page loading speeds, high user engagement, and scalable codebase.'
+    benefits: '10x deployment velocity, 99.99% infrastructure uptime, and up to 35% reduction in cloud operational spend.'
   },
   {
     num: '03',
-    id: 'customer-support',
-    title: 'Customer Support',
-    category: 'Operations & Helpdesk',
-    icon: Headphones,
-    badgeBg: 'bg-emerald-50 text-emerald-600',
-    desc: 'Ensure seamless support for your customers with dedicated assistance and smart solutions.',
-    image: 'https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=600&q=80',
-    details: '24/7 multi-channel IT helpdesk, AI-driven customer support chatbots, omnichannel ticketing integration, and SLA-backed L1-L3 technical assistance.',
+    id: 'ai-data-lakehouse',
+    title: 'Enterprise AI & Data Lakehouse',
+    category: 'AI & Data Science',
+    icon: BarChart3,
+    badgeBg: 'bg-purple-50 text-purple-600',
+    desc: 'Turn enterprise data into competitive intelligence with modern data lakehouses and Generative AI.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80',
+    details: 'Unified modern data lakehouses (Snowflake, Databricks, BigQuery), real-time streaming pipelines, and enterprise Generative AI agents for automated decision intelligence.',
     features: [
-      '24/7 Omnichannel Ticketing & IT Helpdesk',
-      'AI Chatbot & Self-Service Portal Integration',
-      'L1, L2 & L3 SLA-Guaranteed Technical Support',
-      'Customer Satisfaction (CSAT) Monitoring'
+      'Governed Data Lakehouses (Snowflake, Databricks, BigQuery)',
+      'Real-Time Streaming Pipelines (dbt, Spark, Airflow)',
+      'Generative AI, Enterprise RAG & LLM Integration',
+      'Executive BI Scorecards & Predictive Analytics'
     ],
-    benefits: '99.9% support SLA adherence, reduced resolution times, and elevated customer loyalty.'
+    benefits: 'Unified single source of enterprise truth, real-time KPI visibility, and automated executive decision support.'
   },
   {
     num: '04',
-    id: 'human-resources',
-    title: 'Human Resources',
-    category: 'Enterprise Operations',
-    icon: Users,
-    badgeBg: 'bg-orange-50 text-orange-600',
-    desc: 'Simplify HR processes and empower your people with efficient management tools.',
-    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=80',
-    details: 'Modern HRIS implementation, payroll processing automation, talent acquisition analytics, performance management systems, and employee self-service portals.',
+    id: 'cybersecurity-grc',
+    title: 'Cybersecurity, GRC & PCI-DSS 4.0',
+    category: 'Security & Governance',
+    icon: ShieldCheck,
+    badgeBg: 'bg-emerald-50 text-emerald-600',
+    desc: 'Safeguard sensitive assets, achieve PCI-DSS 4.0 attestation, and pass ISO 27001 / NIST audits.',
+    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80',
+    details: 'Rigorous cybersecurity and compliance advisory comparable to HCL Cybersecurity and global QSA assessors. We isolate Cardholder Data Environments, automate vulnerability scanning, and secure AOC pass rates.',
     features: [
-      'HRIS & Employee Portal Implementation',
-      'Automated Payroll & Compliance Workflows',
-      'Performance Evaluation & KPI Tracking',
-      'Talent Acquisition & Onboarding Systems'
+      'PCI-DSS v4.0 Gap Assessment & Scope Reduction',
+      'Cardholder Data Environment (CDE) Isolation',
+      'ISO 27001, NIST CSF & Data Privacy (PDPA/GDPR)',
+      'ITGC Controls Testing & QSA Audit Liaison'
     ],
-    benefits: 'Streamlined HR administration, automated payroll calculation, and improved employee retention.'
+    benefits: '100% audit pass rate, zero non-compliance penalties, and fortified defense against data breaches.'
   },
   {
     num: '05',
-    id: 'design-creatives',
-    title: 'Design & Creatives',
-    category: 'UI/UX & Branding',
-    icon: Palette,
-    badgeBg: 'bg-pink-50 text-pink-600',
-    desc: 'Creative designs that make your brand stand out and leave a lasting impression.',
-    image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80',
-    details: 'UI/UX design systems, brand identity architecture, interactive prototyping, graphic design, design auditing, and accessibility compliance (WCAG 2.1).',
+    id: 'enterprise-erp',
+    title: 'Enterprise Platform Services & ERP',
+    category: 'Enterprise Applications',
+    icon: Layers,
+    badgeBg: 'bg-amber-50 text-amber-600',
+    desc: 'Unify finance, supply chain, and operations with modern SAP S/4HANA and Oracle Cloud ERP.',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80',
+    details: 'Enterprise platform consulting inspired by Cognizant Enterprise Application Services. We implement, modernize, and integrate SAP, Oracle, and custom ERP systems with real-time financial ledger sync.',
     features: [
-      'UI/UX Product Design & Wireframing',
-      'Brand Identity Systems & Style Guides',
-      'Interactive Figma & Adobe XD Prototypes',
-      'Accessibility Audits & WCAG 2.1 Compliance'
+      'SAP S/4HANA & Oracle Cloud ERP Implementation',
+      'Cross-Module Financial & Supply Chain Automation',
+      'Automated Procurement, Inventory & Order Tracking',
+      'Legacy ERP Decoupling & RESTful Middleware Connectors'
     ],
-    benefits: 'Memorable brand identity, intuitive interface design, and higher conversion rates.'
+    benefits: 'Eliminates departmental silos, reduces administrative overhead by 40%, and accelerates book closing.'
   },
   {
     num: '06',
-    id: 'marketing-communication',
-    title: 'Marketing & Communication',
-    category: 'Growth & Marketing',
-    icon: Megaphone,
-    badgeBg: 'bg-yellow-50 text-yellow-700',
-    desc: 'Reach the right audience with impactful strategies and data-driven campaigns.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80',
-    details: 'Performance marketing, search engine optimization (SEO), conversion rate optimization (CRO), multi-channel campaign automation, and data analytics.',
+    id: 'process-automation',
+    title: 'Intelligent Automation & RPA',
+    category: 'Operations & Automation',
+    icon: GitPullRequest,
+    badgeBg: 'bg-rose-50 text-rose-600',
+    desc: 'Eliminate repetitive manual tasks and boost velocity with cognitive bots and intelligent workflows.',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80',
+    details: 'Emulate HCL Digital Operations and Cognizant Automation: Robotic Process Automation (UiPath, Power Automate), intelligent document processing (IDP), and Lean Six Sigma re-engineering.',
     features: [
-      'Data-Driven Performance Marketing',
-      'Search Engine Optimization (SEO) & Content Strategy',
-      'Social Media Campaign Management',
-      'Conversion Rate Optimization (CRO)'
+      'Robotic Process Automation (UiPath / Power Automate)',
+      'Intelligent Document Processing (IDP) & Cognitive OCR',
+      'End-to-End Business Process Re-engineering (BPR)',
+      'Operational Bottleneck Analytics & Real-Time KPIs'
     ],
-    benefits: 'Targeted brand reach, higher lead acquisition, and maximum return on ad spend (ROAS).'
+    benefits: '80% manual error reduction, 5x cycle acceleration, and enhanced workforce productivity.'
   },
   {
     num: '07',
-    id: 'business-development',
-    title: 'Business Development',
-    category: 'Strategy & Growth',
-    icon: TrendingUp,
-    badgeBg: 'bg-sky-50 text-sky-600',
-    desc: 'Identify new opportunities, build strong partnerships and accelerate growth.',
-    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80',
-    details: 'Strategic advisory, digital transformation roadmap, strategic partnership modeling, market expansion strategies, and enterprise lead pipeline engineering.',
+    id: 'quality-engineering',
+    title: 'Quality Engineering & Assurance',
+    category: 'Quality Engineering',
+    icon: CheckCircle2,
+    badgeBg: 'bg-teal-50 text-teal-600',
+    desc: 'Guarantee mission-critical software reliability with automated testing and chaos resilience engineering.',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80',
+    details: 'Emulating CTS Quality Engineering: continuous test automation across the SDLC, high-scale API load simulations (k6, JMeter), cross-device matrices, and chaos engineering.',
     features: [
-      'Digital Transformation Strategy & Advisory',
-      'Market Entry & Expansion Roadmaps',
-      'Strategic B2B Partnership Development',
-      'Revenue Pipeline Engineering'
+      'Continuous Test Automation (Playwright, Cypress)',
+      'API Performance & High-Scale Load Stress Testing',
+      'Automated OWASP Security & Vulnerability Scans',
+      'Chaos Engineering & Disaster Recovery Validation'
     ],
-    benefits: 'Accelerated market expansion, new revenue streams, and sustained enterprise growth.'
+    benefits: 'Zero critical production escape defects, 90% automation coverage, and guaranteed high-load resilience.'
   }
 ];
 
@@ -233,13 +235,13 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
                 </span>
               </div>
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1e0a0a] tracking-tight leading-[1.08]">
-                High-Impact<br />Sectors
+                High-Impact<br />Enterprise Sectors
               </h2>
             </div>
 
             <div className="lg:max-w-md xl:max-w-lg space-y-5 lg:pb-2">
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-                We engineer mission-critical cloud backbones, compliant data architectures, and automated governance frameworks tailored to rigorous regulatory standards across global industries.
+                Modeled after global tier-1 consulting firms, we engineer mission-critical cloud backbones, compliant data architectures, and automated governance frameworks tailored to rigorous regulatory standards.
               </p>
               <div className="flex flex-wrap items-center gap-5 sm:gap-7 pt-1">
                 <Link 
@@ -261,91 +263,94 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
             </div>
           </div>
 
-          <div className="relative group/carousel px-1 sm:px-3">
-            <button
-              type="button"
-              onClick={() => scrollIndustries('left')}
-              aria-label="Previous items"
-              className="absolute -left-2 sm:-left-4 lg:-left-5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white shadow-lg border border-slate-200/80 flex items-center justify-center text-slate-800 hover:text-rose-600 hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
-            >
-              <ChevronLeft className="w-5 h-5 stroke-[2.2]" />
-            </button>
-
+          {/* Desktop & Tablet Carousel */}
+          <div className="relative group">
             <div 
               ref={industryScrollRef}
-              className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory py-4 -mx-4 px-4 sm:mx-0 sm:px-0"
+              className="flex gap-6 overflow-x-auto scrollbar-none pb-6 pt-2 snap-x snap-mandatory"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
-              {industriesData.map((item) => {
-                const isActive = activeIndustryId === item.id;
-                return (
-                  <div
-                    key={item.id}
-                    onClick={() => setActiveIndustryId(item.id)}
-                    className={`relative flex-shrink-0 w-[85vw] max-w-[340px] sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] h-[400px] sm:h-[440px] rounded-[28px] overflow-hidden group cursor-pointer select-none snap-start transition-all duration-300 ${
-                      isActive ? 'shadow-2xl ring-2 ring-rose-500/50' : 'hover:shadow-xl hover:-translate-y-1'
-                    }`}
-                  >
+              {industriesData.map((ind) => (
+                <div 
+                  key={ind.id}
+                  onClick={() => setActiveIndustryId(ind.id)}
+                  className={`flex-shrink-0 w-[280px] sm:w-[320px] rounded-2xl overflow-hidden bg-white border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 snap-start cursor-pointer flex flex-col justify-between ${
+                    activeIndustryId === ind.id ? 'ring-2 ring-rose-600 shadow-md' : ''
+                  }`}
+                >
+                  <div className="h-44 overflow-hidden relative">
                     <img 
-                      src={item.image} 
-                      alt={item.title} 
-                      className={`absolute inset-0 w-full h-full object-cover grayscale contrast-125 brightness-[0.75] transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-95 ${
-                        isActive ? 'grayscale-0 brightness-90' : ''
-                      }`}
+                      src={ind.image} 
+                      alt={ind.title} 
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
-                    <div className="absolute bottom-5 sm:bottom-6 inset-x-4 sm:inset-x-5 z-10 flex flex-col justify-end pointer-events-none">
-                      <div className="opacity-0 max-h-0 -translate-y-1 group-hover:opacity-100 group-hover:max-h-72 group-hover:translate-y-0 transition-all duration-300 ease-out overflow-hidden mb-0 group-hover:mb-3">
-                        <div className="bg-black/85 backdrop-blur-md border border-white/15 rounded-2xl p-3.5 sm:p-4 shadow-2xl">
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 block mb-1">
-                            {item.category}
-                          </span>
-                          <p className="text-xs sm:text-[12px] text-slate-100 leading-relaxed font-normal">
-                            {item.description}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="pr-16 sm:pr-20 min-h-[44px] sm:min-h-[52px] flex items-end">
-                        <h3 className={`text-base sm:text-lg font-bold leading-snug transition-colors duration-200 ${
-                          isActive ? 'text-[#ffcc00]' : 'text-white group-hover:text-[#ffcc00]'
-                        }`}>
-                          {item.title}
-                        </h3>
-                      </div>
+                    <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-bold text-white tracking-wider uppercase">
+                      {ind.category}
                     </div>
                   </div>
-                );
-              })}
+                  <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
+                    <div className="space-y-1.5">
+                      <h3 className="text-base font-bold text-slate-900 leading-snug">
+                        {ind.title}
+                      </h3>
+                      <p className="text-[11px] font-semibold text-rose-700">
+                        {ind.subtitle}
+                      </p>
+                      <p className="text-xs text-slate-500 leading-relaxed font-normal line-clamp-3">
+                        {ind.description}
+                      </p>
+                    </div>
+                    <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
+                      <Link 
+                        to={ind.link} 
+                        className="text-xs font-bold text-rose-700 hover:text-rose-900 inline-flex items-center gap-1 group"
+                      >
+                        <span>Explore Sector</span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            <button
-              type="button"
-              onClick={() => scrollIndustries('right')}
-              aria-label="Next items"
-              className="absolute -right-2 sm:-right-4 lg:-right-5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white shadow-lg border border-slate-200/80 flex items-center justify-center text-slate-800 hover:text-rose-600 hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
-            >
-              <ChevronRight className="w-5 h-5 stroke-[2.2]" />
-            </button>
+            {/* Carousel Navigation Buttons */}
+            <div className="flex items-center justify-end gap-3 pt-4">
+              <button 
+                onClick={() => scrollIndustries('left')}
+                aria-label="Previous industry"
+                className="w-10 h-10 rounded-full border border-slate-300 bg-white flex items-center justify-center text-slate-700 hover:bg-slate-50 hover:text-rose-700 shadow-xs transition-colors"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button 
+                onClick={() => scrollIndustries('right')}
+                aria-label="Next industry"
+                className="w-10 h-10 rounded-full border border-slate-300 bg-white flex items-center justify-center text-slate-700 hover:bg-slate-50 hover:text-rose-700 shadow-xs transition-colors"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
         </div>
       </section>
     );
   }
 
-  // Handle Card Click
+  // Handle clicking a service card
   const handleCardClick = (svc) => {
     if (onSelectService) {
       onSelectService({
         id: svc.id,
         title: svc.title,
-        category: svc.category || 'Technology Services',
+        category: svc.category,
         summary: svc.desc,
         description: svc.details || svc.desc,
         features: svc.features || [
-          'Enterprise-Grade Strategy & Implementation',
-          'Automated Workflows & Tool Integration',
-          'SLA-Backed Technical Support & Maintenance',
-          'Scalable Cloud & Security Architecture'
+          'Enterprise Consulting & Architectural Assessment',
+          'Production-Ready Implementation & Migration',
+          'Continuous Performance Monitoring & SLAs',
+          'Executive Documentation & Knowledge Transfer'
         ],
         benefits: svc.benefits || 'Streamlined processes, higher team productivity, and measurable business outcomes.'
       });
@@ -354,7 +359,7 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
     }
   };
 
-  // Render Services Mode (Perfect Pixel-Accurate UI)
+  // Render Services Mode (Benchmark: HCLTech & Cognizant/CTS)
   return (
     <section id="services" className="py-16 sm:py-24 bg-[#eef2f8] text-slate-900 relative overflow-hidden font-sans scroll-mt-24">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -362,10 +367,10 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
         {/* Top Header Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center mb-12 sm:mb-16">
           
-          {/* Top Left Tag: INNOVATE DEVELOP GROW */}
+          {/* Top Left Tag: DIGITAL · CLOUD · GOVERNANCE */}
           <div className="lg:col-span-3 flex flex-col items-start space-y-1">
             <span className="text-[11px] font-bold tracking-[0.25em] text-[#64748b] uppercase leading-tight font-sans">
-              INNOVATE<br />DEVELOP<br />GROW
+              DIGITAL<br />CLOUD<br />GOVERNANCE
             </span>
             <div className="w-7 h-[2px] bg-[#0052cc] mt-2 rounded-full" />
           </div>
@@ -374,27 +379,27 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
           <div className="lg:col-span-6 text-center space-y-3">
             <div className="inline-flex items-center space-x-2.5 text-[11px] sm:text-xs font-semibold tracking-[0.2em] text-[#0052cc] uppercase">
               <span className="w-6 h-[1.5px] bg-[#0052cc]" />
-              <span>OUR SERVICES</span>
+              <span>ENTERPRISE SERVICES</span>
               <span className="w-6 h-[1.5px] bg-[#0052cc]" />
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-black text-[#0a192f] tracking-tight leading-[1.12]">
-              Save Time Managing Your Business<br className="hidden sm:inline" /> With Our{' '}
-              <span className="text-[#0052cc]">Best Services</span>
+              Transform Your Enterprise With Our<br className="hidden sm:inline" /> Leading{' '}
+              <span className="text-[#0052cc]">Digital Practices</span>
             </h2>
 
             <p className="text-xs sm:text-sm text-[#64748b] max-w-xl mx-auto leading-relaxed font-normal">
-              From ideas to execution, we deliver end-to-end technology solutions to help your business grow faster and smarter.
+              Modeled after global tier-1 technology consulting standards, we deliver end-to-end digital engineering, cloud, AI, and compliance solutions.
             </p>
           </div>
 
-          {/* Top Right Cursive Decorative Text */}
+          {/* Top Right Decorative Tagline */}
           <div className="lg:col-span-3 hidden lg:flex flex-col items-end text-right">
             <span 
               className="text-2xl xl:text-3xl text-[#5b82f6] font-normal leading-tight tracking-wide select-none transform -rotate-3"
               style={{ fontFamily: "'Dancing Script', 'Caveat', 'Georgia', cursive, italic" }}
             >
-              Technology<br />for a Better<br />Tomorrow
+              Enterprise<br />Engineering &<br />Scale
             </span>
           </div>
 
@@ -461,26 +466,26 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
             );
           })}
 
-          {/* Card 08: "+4 More Services" Solid Blue CTA Card */}
+          {/* Card 08: "+5 More Practices" Solid Blue CTA Card */}
           <div
             onClick={() => {
               if (onSelectService) {
                 onSelectService({
-                  id: 'all-services-overview',
+                  id: 'all-enterprise-practices',
                   title: 'Full Suite of Enterprise Solutions',
-                  category: 'All Technology Verticals',
-                  summary: 'Discover our complete suite including Data Analytics, Cloud Engineering, PCI-DSS Governance & Enterprise ERP integration.',
-                  description: 'Inspac Solutions delivers end-to-end technology solutions across 9 specialized enterprise domains. Beyond our core services, we provide BigQuery/Snowflake Data Lakes, DevOps Kubernetes automation, PCI-DSS 4.0 Attestation, and SAP/Oracle ERP integration.',
+                  category: 'All Technology Practices',
+                  summary: 'Discover our complete suite including 24/7 Managed Infrastructure, Database HA Clustering, ITGC Controls & Custom Low-Code Engineering.',
+                  description: 'Inspac Solutions delivers end-to-end technology solutions across 8+ specialized enterprise domains inspired by global leaders HCLTech and Cognizant (CTS). Beyond our core services, we provide 24/7/365 NOC/SOC Managed Services, High-Availability Database Disaster Recovery, QSA PCI-DSS 4.0 Attestation, and SAP/Oracle ERP integration.',
                   features: [
-                    'Data Analytics & Executive BI Dashboards',
-                    'Multi-Cloud DevOps & Kubernetes Scaling',
-                    'PCI-DSS v4.0 & ISO 27001 GRC Advisory',
-                    'SAP & Oracle ERP System Integration'
+                    '24/7/365 Global Managed Infrastructure & NOC/SOC Support',
+                    'Zero-Downtime Database Clustering & Multi-Region DR',
+                    'Third-Party Vendor ITGC Controls & Security Auditing',
+                    'Low-Code Enterprise Workflow Systems & API Middleware'
                   ],
-                  benefits: 'Complete enterprise coverage, guaranteed audit compliance, and 24/7 APAC operational support.'
+                  benefits: 'Complete enterprise lifecycle coverage, guaranteed audit compliance, and round-the-clock APAC operational support.'
                 });
               } else if (onOpenContact) {
-                onOpenContact('Enterprise Services Inquiry');
+                onOpenContact('Enterprise Services Suite Inquiry');
               }
             }}
             className="bg-gradient-to-br from-[#0052cc] via-[#0047d6] to-[#0038b8] rounded-[26px] p-6 text-white shadow-[0_4px_25px_rgba(0,82,204,0.25)] hover:shadow-[0_12px_35px_rgba(0,82,204,0.4)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group cursor-pointer min-h-[290px] sm:min-h-[305px]"
@@ -491,7 +496,7 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
             {/* Top Row: Number & Grid Icon Badge */}
             <div className="flex items-center justify-between relative z-10">
               <span className="text-xs font-bold text-blue-200 tracking-wider font-mono">
-                +4
+                +5
               </span>
               <div className="w-9 h-9 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/25">
                 <LayoutGrid className="w-4.5 h-4.5 stroke-[2]" />
@@ -501,17 +506,17 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
             {/* Middle Title & Description */}
             <div className="my-auto py-2 relative z-10">
               <h3 className="text-2xl sm:text-3xl font-black text-white leading-[1.08] mb-2">
-                +4<br />More<br />Services
+                +5<br />More<br />Practices
               </h3>
               <p className="text-[11px] sm:text-[12px] text-blue-100/90 leading-relaxed font-normal max-w-[90%]">
-                Explore all our services and find the right solution for your business.
+                Explore our full suite of 24/7 Managed Infrastructure, Database HA & GRC advisory.
               </p>
             </div>
 
             {/* Bottom Row */}
             <div className="flex items-center justify-between pt-1 relative z-10">
               <div className="inline-flex items-center space-x-1.5 text-[12px] font-bold text-white group-hover:translate-x-1 transition-transform">
-                <span>View All Services</span>
+                <span>View Full Suite</span>
                 <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
               </div>
 
