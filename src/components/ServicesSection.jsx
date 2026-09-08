@@ -1,28 +1,20 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  BarChart3, 
-  Database, 
-  Layers, 
-  Cloud, 
-  GitPullRequest, 
-  ShieldCheck, 
-  CreditCard, 
-  CheckCircle2, 
+  ClipboardList, 
   Code2, 
-  ArrowRight, 
-  Sparkles, 
+  Headphones, 
+  Users, 
+  Palette, 
+  Megaphone, 
   TrendingUp, 
-  ChevronRight, 
-  ChevronLeft,
-  Smartphone,
-  Globe,
-  Settings,
-  Users,
-  Megaphone
+  LayoutGrid, 
+  ArrowRight,
+  ChevronRight,
+  ChevronLeft
 } from 'lucide-react';
 
-// Curated photography for Industry Sectors
+// Industry sectors data for mode="industries"
 const industriesData = [
   {
     id: 'fintech',
@@ -80,76 +72,133 @@ const industriesData = [
   }
 ];
 
-const servicesList = [
+// Main 7 Services cards (matching the user provided reference image)
+const servicesCards = [
   {
     num: '01',
-    id: 'custom-software',
-    title: 'Custom Software Development',
-    icon: Code2,
-    desc: 'We build tailor-made software solutions that solve your unique business challenges and drive growth. From idea to deployment, we turn your vision into powerful digital products.'
+    id: 'project-management',
+    title: 'Project Management',
+    category: 'Management & PMO',
+    icon: ClipboardList,
+    badgeBg: 'bg-blue-100/90 text-[#0052cc]',
+    desc: 'Plan, track and deliver projects efficiently with advanced tools and proven methodologies.',
+    image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80',
+    details: 'Our enterprise project management service covers Agile & Scrum transformation, PMO setup, Gantt resource allocation, risk mitigation, and automated milestone tracking.',
+    features: [
+      'Agile, Scrum & Kanban Project Governance',
+      'Resource Planning & Gantt Chart Tracking',
+      'Risk Assessment & Mitigation Frameworks',
+      'Automated Executive Milestone Dashboards'
+    ],
+    benefits: 'On-time delivery, eliminated budget overruns, and transparent project tracking across engineering teams.'
   },
   {
     num: '02',
-    id: 'cloud-solutions',
-    title: 'Cloud Solutions & Migration',
-    icon: Cloud,
-    desc: 'Accelerate your digital transformation with secure, scalable multi-cloud infrastructure, cloud-native architectures, and zero-downtime migration strategies.'
+    id: 'web-mobile-dev',
+    title: 'Web & Mobile Development',
+    category: 'Software Engineering',
+    icon: Code2,
+    badgeBg: 'bg-purple-100/90 text-purple-700',
+    desc: 'Build modern, scalable and user-friendly websites and mobile applications.',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80',
+    details: 'Full-stack Web and iOS/Android app engineering utilizing React, React Native, Next.js, Node.js, and cloud microservices tailored for high performance.',
+    features: [
+      'Full-Stack Web Applications (React, Next.js, Node.js)',
+      'Cross-Platform iOS & Android Mobile Apps',
+      'High-Performance RESTful & GraphQL APIs',
+      'Cloud Microservices Architecture'
+    ],
+    benefits: 'Sub-second page loading speeds, high user engagement, and scalable codebase.'
   },
   {
     num: '03',
-    id: 'mobile-app',
-    title: 'Mobile App Development',
-    icon: Smartphone,
-    desc: 'Craft high-performance, intuitive iOS and Android applications with rich user interfaces, offline capabilities, and seamless backend integration.'
+    id: 'customer-support',
+    title: 'Customer Support',
+    category: 'Operations & Helpdesk',
+    icon: Headphones,
+    badgeBg: 'bg-emerald-100/90 text-emerald-700',
+    desc: 'Ensure seamless support for your customers with dedicated assistance and smart solutions.',
+    image: 'https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=600&q=80',
+    details: '24/7 multi-channel IT helpdesk, AI-driven customer support chatbots, omnichannel ticketing integration, and SLA-backed L1-L3 technical assistance.',
+    features: [
+      '24/7 Omnichannel Ticketing & IT Helpdesk',
+      'AI Chatbot & Self-Service Portal Integration',
+      'L1, L2 & L3 SLA-Guaranteed Technical Support',
+      'Customer Satisfaction (CSAT) Monitoring'
+    ],
+    benefits: '99.9% support SLA adherence, reduced resolution times, and elevated customer loyalty.'
   },
   {
     num: '04',
-    id: 'web-development',
-    title: 'Web Development & Digital Experience',
-    icon: Globe,
-    desc: 'Deliver blazing-fast, responsive web platforms and web applications optimized for search engines, high conversion rates, and superior user engagement.'
+    id: 'human-resources',
+    title: 'Human Resources',
+    category: 'Enterprise Operations',
+    icon: Users,
+    badgeBg: 'bg-amber-100/90 text-amber-800',
+    desc: 'Simplify HR processes and empower your people with efficient management tools.',
+    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=80',
+    details: 'Modern HRIS implementation, payroll processing automation, talent acquisition analytics, performance management systems, and employee self-service portals.',
+    features: [
+      'HRIS & Employee Portal Implementation',
+      'Automated Payroll & Compliance Workflows',
+      'Performance Evaluation & KPI Tracking',
+      'Talent Acquisition & Onboarding Systems'
+    ],
+    benefits: 'Streamlined HR administration, automated payroll calculation, and improved employee retention.'
   },
   {
     num: '05',
-    id: 'data-analytics',
-    title: 'Data & Analytics',
-    icon: BarChart3,
-    desc: 'Turn raw enterprise data into actionable intelligence with automated executive BI dashboards, predictive AI models, and real-time analytics pipelines.'
+    id: 'design-creatives',
+    title: 'Design & Creatives',
+    category: 'UI/UX & Branding',
+    icon: Palette,
+    badgeBg: 'bg-pink-100/90 text-pink-700',
+    desc: 'Creative designs that make your brand stand out and leave a lasting impression.',
+    image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80',
+    details: 'UI/UX design systems, brand identity architecture, interactive prototyping, graphic design, design auditing, and accessibility compliance (WCAG 2.1).',
+    features: [
+      'UI/UX Product Design & Wireframing',
+      'Brand Identity Systems & Style Guides',
+      'Interactive Figma & Adobe XD Prototypes',
+      'Accessibility Audits & WCAG 2.1 Compliance'
+    ],
+    benefits: 'Memorable brand identity, intuitive interface design, and higher conversion rates.'
   },
   {
     num: '06',
-    id: 'process-automation',
-    title: 'Process Automation',
-    icon: Settings,
-    desc: 'Eliminate manual operational bottlenecks with Robotic Process Automation (RPA), workflow re-engineering, and automated SOP digital controls.'
+    id: 'marketing-communication',
+    title: 'Marketing & Communication',
+    category: 'Growth & Marketing',
+    icon: Megaphone,
+    badgeBg: 'bg-yellow-100/90 text-yellow-800',
+    desc: 'Reach the right audience with impactful strategies and data-driven campaigns.',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80',
+    details: 'Performance marketing, search engine optimization (SEO), conversion rate optimization (CRO), multi-channel campaign automation, and data analytics.',
+    features: [
+      'Data-Driven Performance Marketing',
+      'Search Engine Optimization (SEO) & Content Strategy',
+      'Social Media Campaign Management',
+      'Conversion Rate Optimization (CRO)'
+    ],
+    benefits: 'Targeted brand reach, higher lead acquisition, and maximum return on ad spend (ROAS).'
   },
   {
     num: '07',
-    id: 'qa-testing',
-    title: 'Quality Assurance & Testing',
-    icon: ShieldCheck,
-    desc: 'Ensure bulletproof software reliability through automated end-to-end testing, security penetration audits, and performance regression suites.'
-  },
-  {
-    num: '08',
-    id: 'it-consulting',
-    title: 'IT Consulting & Strategy',
-    icon: Users,
-    desc: 'Guide your technology investments with expert C-level advisory, Enterprise IT governance, digital transformation roadmaps, and architecture reviews.'
-  },
-  {
-    num: '09',
-    id: 'digital-marketing',
-    title: 'Digital Marketing Solutions',
-    icon: Megaphone,
-    desc: 'Expand your global digital footprint with data-driven performance marketing, SEO, conversion rate optimization, and multi-channel campaign strategies.'
-  },
-  {
-    num: '10',
-    id: 'enterprise-integration',
-    title: 'Enterprise Integration',
-    icon: Database,
-    desc: 'Connect disparate enterprise systems, SAP/Oracle ERPs, legacy backends, and third-party APIs into a unified real-time middleware hub.'
+    id: 'business-development',
+    title: 'Business Development',
+    category: 'Strategy & Growth',
+    icon: TrendingUp,
+    badgeBg: 'bg-sky-100/90 text-sky-800',
+    desc: 'Identify new opportunities, build strong partnerships and accelerate growth.',
+    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80',
+    details: 'Strategic advisory, digital transformation roadmap, strategic partnership modeling, market expansion strategies, and enterprise lead pipeline engineering.',
+    features: [
+      'Digital Transformation Strategy & Advisory',
+      'Market Entry & Expansion Roadmaps',
+      'Strategic B2B Partnership Development',
+      'Revenue Pipeline Engineering'
+    ],
+    benefits: 'Accelerated market expansion, new revenue streams, and sustained enterprise growth.'
   }
 ];
 
@@ -159,9 +208,6 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
   // Industries mode state
   const [activeIndustryId, setActiveIndustryId] = useState(industriesData[0]?.id || 'fintech');
   const industryScrollRef = useRef(null);
-
-  // Active Service Index state
-  const [activeIndex, setActiveIndex] = useState(0);
 
   const scrollIndustries = (direction) => {
     if (industryScrollRef.current) {
@@ -173,14 +219,7 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
     }
   };
 
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev === 0 ? servicesList.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev === servicesList.length - 1 ? 0 : prev + 1));
-  };
-
+  // Render Industries Mode
   if (isIndustries) {
     return (
       <section id="industries" className="py-16 sm:py-24 bg-[#fcfbfa] text-slate-900 relative overflow-hidden font-sans scroll-mt-24">
@@ -213,7 +252,7 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
                 <button 
                   type="button"
                   onClick={() => onOpenContact && onOpenContact('Industry Advisory Consultation')} 
-                  className="text-xs sm:text-sm font-bold text-[#881337] hover:text-[#dc2626] inline-flex items-center gap-1 group transition-colors"
+                  className="text-xs sm:text-sm font-bold text-[#881337] hover:text-[#dc2626] inline-flex items-center gap-1 group transition-colors cursor-pointer"
                 >
                   <span>Partner With Us</span>
                   <ChevronRight className="w-4 h-4 text-rose-600 group-hover:translate-x-1 transition-transform" />
@@ -227,7 +266,7 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
               type="button"
               onClick={() => scrollIndustries('left')}
               aria-label="Previous items"
-              className="absolute -left-2 sm:-left-4 lg:-left-5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white shadow-lg border border-slate-200/80 flex items-center justify-center text-slate-800 hover:text-rose-600 hover:scale-110 active:scale-95 transition-all duration-200"
+              className="absolute -left-2 sm:-left-4 lg:-left-5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white shadow-lg border border-slate-200/80 flex items-center justify-center text-slate-800 hover:text-rose-600 hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
             >
               <ChevronLeft className="w-5 h-5 stroke-[2.2]" />
             </button>
@@ -283,7 +322,7 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
               type="button"
               onClick={() => scrollIndustries('right')}
               aria-label="Next items"
-              className="absolute -right-2 sm:-right-4 lg:-right-5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white shadow-lg border border-slate-200/80 flex items-center justify-center text-slate-800 hover:text-rose-600 hover:scale-110 active:scale-95 transition-all duration-200"
+              className="absolute -right-2 sm:-right-4 lg:-right-5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white shadow-lg border border-slate-200/80 flex items-center justify-center text-slate-800 hover:text-rose-600 hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
             >
               <ChevronRight className="w-5 h-5 stroke-[2.2]" />
             </button>
@@ -293,181 +332,205 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
     );
   }
 
-  const currentService = servicesList[activeIndex];
-  const ActiveIcon = currentService.icon;
+  // Handle Card Click
+  const handleCardClick = (svc) => {
+    if (onSelectService) {
+      onSelectService({
+        id: svc.id,
+        title: svc.title,
+        category: svc.category || 'Technology Services',
+        summary: svc.desc,
+        description: svc.details || svc.desc,
+        features: svc.features || [
+          'Enterprise-Grade Strategy & Implementation',
+          'Automated Workflows & Tool Integration',
+          'SLA-Backed Technical Support & Maintenance',
+          'Scalable Cloud & Security Architecture'
+        ],
+        benefits: svc.benefits || 'Streamlined processes, higher team productivity, and measurable business outcomes.'
+      });
+    } else if (onOpenContact) {
+      onOpenContact(`Inquiry: ${svc.title}`);
+    }
+  };
 
+  // Render Services Mode (Matching exact reference image design)
   return (
-    <section id="services" className="py-12 sm:py-20 bg-[#f4f6fa] text-slate-900 relative overflow-hidden font-sans border-y border-slate-200/80 scroll-mt-24">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-16 sm:py-24 bg-[#f8fafc] text-slate-900 relative overflow-hidden font-sans scroll-mt-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main Card Container */}
-        <div className="bg-white rounded-3xl shadow-xl border border-slate-200/90 overflow-hidden grid grid-cols-1 lg:grid-cols-12 min-h-[620px]">
+        {/* Top Header Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center mb-12 sm:mb-16">
           
-          {/* Left & Middle Column (Grid cols 1 to 7): Header + 2-Column Services Grid */}
-          <div className="lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between space-y-8">
-            
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-              
-              {/* Header & Paragraph Column */}
-              <div className="md:col-span-5 space-y-4">
-                
-                {/* Subheader */}
-                <div className="flex items-center space-x-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                  <span>Our Expertise</span>
-                  <span className="w-5 h-[1.5px] bg-slate-300"></span>
-                  <span>Your Growth</span>
-                </div>
-
-                {/* Title */}
-                <div>
-                  <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-none">
-                    Services
-                  </h2>
-                  <div className="w-12 h-1 bg-[#004bb7] rounded-full mt-3" />
-                </div>
-
-                {/* Paragraph Description */}
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-1">
-                  We deliver end-to-end technology services to help businesses innovate, scale and stay ahead. From strategy to execution, our solutions are designed around your goals.
-                </p>
-
-                {/* Explore Link */}
-                <div className="pt-2">
-                  <button
-                    onClick={() => {
-                      if (onOpenContact) {
-                        onOpenContact('General Services Inquiry');
-                      }
-                    }}
-                    className="inline-flex items-center space-x-2 text-xs sm:text-sm font-bold text-slate-900 border-b-2 border-slate-900 pb-0.5 hover:text-[#004bb7] hover:border-[#004bb7] transition-colors group cursor-pointer"
-                  >
-                    <span>Explore Our Services</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </div>
-              </div>
-
-              {/* 2-Column Services Grid (10 Services) */}
-              <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-                {servicesList.map((svc, idx) => {
-                  const isActive = activeIndex === idx;
-
-                  return (
-                    <div
-                      key={svc.id}
-                      onClick={() => setActiveIndex(idx)}
-                      onMouseEnter={() => setActiveIndex(idx)}
-                      className={`p-3 sm:p-4 rounded-2xl cursor-pointer transition-all duration-200 border text-left group flex flex-col justify-between ${
-                        isActive
-                          ? 'bg-blue-50/90 border-[#004bb7]/50 shadow-sm ring-1 ring-[#004bb7]/30'
-                          : 'bg-transparent border-transparent hover:bg-slate-50 hover:border-slate-200'
-                      }`}
-                    >
-                      {/* Number & Dash */}
-                      <div className="flex items-center space-x-2 mb-2">
-                        <span className={`text-xs font-bold font-mono ${isActive ? 'text-[#004bb7]' : 'text-[#004bb7]/90'}`}>
-                          {svc.num}
-                        </span>
-                        <span className="w-4 h-[1px] bg-slate-300"></span>
-                      </div>
-
-                      {/* Title */}
-                      <div>
-                        <h3 className={`text-xs sm:text-sm font-bold leading-snug ${isActive ? 'text-[#004bb7]' : 'text-slate-800 group-hover:text-[#004bb7]'} transition-colors`}>
-                          {svc.title}
-                        </h3>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-            </div>
-
-            {/* Bottom Tagline */}
-            <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-[10px] sm:text-[11px] font-mono font-bold tracking-widest text-slate-400 uppercase">
-              <span>TECHNOLOGY FOR A BRIGHTER TOMORROW</span>
-            </div>
-
+          {/* Top Left Tag: INNOVATE DEVELOP GROW */}
+          <div className="lg:col-span-3 flex flex-col items-start space-y-1">
+            <span className="text-[10px] sm:text-[11px] font-extrabold tracking-[0.25em] text-slate-400 uppercase leading-tight font-mono">
+              INNOVATE<br />DEVELOP<br />GROW
+            </span>
+            <div className="w-8 h-[2.5px] bg-[#0052cc] mt-1.5 rounded-full" />
           </div>
 
-          {/* Right Column (Grid cols 8 to 12): Vibrant Deep Royal Blue Panel */}
-          <div className="lg:col-span-5 bg-[#004bb7] p-8 sm:p-10 lg:p-12 text-white flex flex-col justify-between relative overflow-hidden min-h-[440px]">
-            
-            {/* Ambient subtle glow background decorative element */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
+          {/* Center Main Title */}
+          <div className="lg:col-span-6 text-center space-y-3">
+            <div className="inline-flex items-center space-x-2.5 text-[11px] sm:text-xs font-bold tracking-[0.2em] text-[#0052cc] uppercase">
+              <span className="w-6 h-[1.5px] bg-[#0052cc]" />
+              <span>OUR SERVICES</span>
+              <span className="w-6 h-[1.5px] bg-[#0052cc]" />
+            </div>
 
-            {/* Top Label */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0f172a] tracking-tight leading-[1.12]">
+              Save Time Managing Your Business<br className="hidden sm:inline" /> With Our{' '}
+              <span className="text-[#0052cc]">Best Services</span>
+            </h2>
+
+            <p className="text-xs sm:text-sm text-slate-500 max-w-xl mx-auto leading-relaxed font-normal">
+              From ideas to execution, we deliver end-to-end technology solutions to help your business grow faster and smarter.
+            </p>
+          </div>
+
+          {/* Top Right Cursive Decorative Text */}
+          <div className="lg:col-span-3 hidden lg:flex flex-col items-end text-right">
+            <span 
+              className="text-xl xl:text-2xl text-[#60a5fa] font-semibold leading-snug tracking-wide select-none transform -rotate-2"
+              style={{ fontFamily: "'Dancing Script', 'Caveat', 'Georgia', cursive, italic" }}
+            >
+              Technology<br />for a Better<br />Tomorrow
+            </span>
+          </div>
+
+        </div>
+
+        {/* 8-Card Grid (4 cols x 2 rows) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          {/* First 7 Services Cards */}
+          {servicesCards.map((svc) => {
+            const IconComponent = svc.icon;
+
+            return (
+              <div
+                key={svc.id}
+                onClick={() => handleCardClick(svc)}
+                className="bg-white rounded-3xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 border border-slate-100/80 flex flex-col justify-between relative overflow-hidden group cursor-pointer min-h-[300px] sm:min-h-[320px]"
+              >
+                {/* Background Image Cutout / Blended Fade on Right Side */}
+                <div className="absolute right-0 bottom-0 top-0 w-1/2 overflow-hidden pointer-events-none rounded-r-3xl">
+                  <img 
+                    src={svc.image} 
+                    alt={svc.title}
+                    className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 opacity-80"
+                  />
+                  {/* Smooth White Gradient Mask Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 via-50% to-transparent" />
+                </div>
+
+                {/* Card Header: Number at Left, Icon Badge at Right */}
+                <div className="flex items-center justify-between relative z-10">
+                  <span className="text-sm font-extrabold text-[#0052cc] tracking-wider font-mono">
+                    {svc.num}
+                  </span>
+                  <div className={`w-10 h-10 rounded-2xl flex items-center justify-center shadow-sm ${svc.badgeBg}`}>
+                    <IconComponent className="w-5 h-5 stroke-[2.2]" />
+                  </div>
+                </div>
+
+                {/* Card Body: Title & Short Description */}
+                <div className="my-auto py-4 relative z-10 max-w-[85%]">
+                  <h3 className="text-base sm:text-lg font-extrabold text-[#0f172a] leading-snug group-hover:text-[#0052cc] transition-colors mb-2">
+                    {svc.title}
+                  </h3>
+                  <p className="text-xs text-slate-500 leading-relaxed font-normal line-clamp-3">
+                    {svc.desc}
+                  </p>
+                </div>
+
+                {/* Card Footer: Action Link */}
+                <div className="relative z-10 pt-1">
+                  <div className="inline-flex items-center space-x-1.5 text-xs font-bold text-[#0052cc] group-hover:translate-x-1 transition-transform">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+
+          {/* Card 08: "+4 More Services" Solid Blue Gradient CTA Card */}
+          <div
+            onClick={() => {
+              if (onSelectService) {
+                onSelectService({
+                  id: 'all-services-overview',
+                  title: 'Full Suite of Enterprise Solutions',
+                  category: 'All Technology Verticals',
+                  summary: 'Discover our complete suite including Data Analytics, Cloud Engineering, PCI-DSS Governance & Enterprise ERP integration.',
+                  description: 'Inspac Solutions delivers end-to-end technology solutions across 9 specialized enterprise domains. Beyond our core services, we provide BigQuery/Snowflake Data Lakes, DevOps Kubernetes automation, PCI-DSS 4.0 Attestation, and SAP/Oracle ERP integration.',
+                  features: [
+                    'Data Analytics & Executive BI Dashboards',
+                    'Multi-Cloud DevOps & Kubernetes Scaling',
+                    'PCI-DSS v4.0 & ISO 27001 GRC Advisory',
+                    'SAP & Oracle ERP System Integration'
+                  ],
+                  benefits: 'Complete enterprise coverage, guaranteed audit compliance, and 24/7 APAC operational support.'
+                });
+              } else if (onOpenContact) {
+                onOpenContact('Enterprise Services Inquiry');
+              }
+            }}
+            className="bg-gradient-to-br from-[#0052cc] via-[#0047bd] to-[#003899] rounded-3xl p-6 text-white shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group cursor-pointer min-h-[300px] sm:min-h-[320px]"
+          >
+            {/* Background Grid Pattern Overlay */}
+            <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+
+            {/* Header: Number & Layout Grid Badge */}
             <div className="flex items-center justify-between relative z-10">
-              <span className="text-[10px] sm:text-xs font-mono font-semibold tracking-widest text-white/80 uppercase">
-                SOLUTIONS THAT MAKE AN IMPACT
+              <span className="text-sm font-extrabold text-blue-200 tracking-wider font-mono">
+                +4
               </span>
+              <div className="w-10 h-10 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-white border border-white/20 shadow-sm">
+                <LayoutGrid className="w-5 h-5 stroke-[2]" />
+              </div>
             </div>
 
-            {/* Middle Main Active Service Content */}
-            <div className="my-6 sm:my-10 space-y-6 relative z-10">
-              
-              {/* Title & Accent Underline */}
-              <div>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">
-                  {currentService.title}
-                </h3>
-                <div className="w-12 h-1 bg-white/80 rounded-full mt-4" />
-              </div>
-
-              {/* Description */}
-              <p className="text-xs sm:text-sm lg:text-base text-white/90 leading-relaxed font-normal">
-                {currentService.desc}
+            {/* Body Title & Description */}
+            <div className="my-auto py-3 relative z-10">
+              <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight mb-2">
+                +4 More<br />Services
+              </h3>
+              <p className="text-xs text-blue-100/90 leading-relaxed font-normal max-w-[90%]">
+                Explore all our services and find the right solution for your business.
               </p>
-
-              {/* Action Button */}
-              <div className="pt-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (onSelectService) onSelectService(currentService);
-                    if (onOpenContact) onOpenContact(`Inquiry: ${currentService.title}`);
-                  }}
-                  className="px-5 py-2.5 rounded-xl bg-white text-[#004bb7] hover:bg-blue-50 text-xs sm:text-sm font-bold shadow-lg transition-all inline-flex items-center space-x-2 group/btn"
-                >
-                  <span>Consult on {currentService.title}</span>
-                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                </button>
-              </div>
-
             </div>
 
-            {/* Bottom Pagination Counter & Navigation Arrows */}
-            <div className="flex items-center justify-between pt-6 border-t border-white/20 relative z-10">
-              <span className="text-xs sm:text-sm font-mono font-bold text-white/90">
-                {currentService.num} / {servicesList.length.toString().padStart(2, '0')}
-              </span>
+            {/* Footer: View All Services link + Circle Button */}
+            <div className="flex items-center justify-between pt-2 relative z-10">
+              <div className="inline-flex items-center space-x-1.5 text-xs font-bold text-white group-hover:translate-x-1 transition-transform">
+                <span>View All Services</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
 
-              <div className="flex items-center space-x-3">
-                {/* Prev Button */}
-                <button
-                  type="button"
-                  onClick={handlePrev}
-                  aria-label="Previous Service"
-                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/40 hover:border-white hover:bg-white/10 text-white flex items-center justify-center transition-all active:scale-95 cursor-pointer"
-                >
-                  <ChevronLeft className="w-5 h-5 stroke-[2.2]" />
-                </button>
-
-                {/* Next Button */}
-                <button
-                  type="button"
-                  onClick={handleNext}
-                  aria-label="Next Service"
-                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/40 hover:border-white hover:bg-white/10 text-white flex items-center justify-center transition-all active:scale-95 cursor-pointer"
-                >
-                  <ChevronRight className="w-5 h-5 stroke-[2.2]" />
-                </button>
+              <div className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#0052cc] transition-all duration-300">
+                <ArrowRight className="w-4.5 h-4.5" />
               </div>
             </div>
 
           </div>
 
+        </div>
+
+        {/* Bottom Taglines / Footer Labels */}
+        <div className="mt-12 sm:mt-16 pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] sm:text-xs font-mono font-bold tracking-[0.2em] text-slate-400 uppercase">
+          <div className="flex items-center space-x-3">
+            <span>YOUR SUCCESS</span>
+            <span className="w-6 h-[1.5px] bg-slate-300" />
+            <span>OUR TECHNOLOGY</span>
+          </div>
+
+          <div className="flex items-center space-x-3">
+            <span>SMART SOLUTIONS</span>
+            <span className="w-6 h-[1.5px] bg-slate-300" />
+            <span>REAL IMPACT</span>
+          </div>
         </div>
 
       </div>
