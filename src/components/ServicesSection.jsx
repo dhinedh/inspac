@@ -523,21 +523,6 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
 
         </div>
 
-        {/* Bottom Taglines / Footer Corner Labels */}
-        <div className="mt-12 sm:mt-16 pt-6 border-t border-slate-300/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] sm:text-xs font-mono font-bold tracking-[0.2em] text-[#94a3b8] uppercase">
-          <div className="flex items-center space-x-3">
-            <span>YOUR SUCCESS</span>
-            <span className="w-6 h-[1.5px] bg-slate-300" />
-            <span>OUR TECHNOLOGY</span>
-          </div>
-
-          <div className="flex items-center space-x-3">
-            <span>SMART SOLUTIONS</span>
-            <span className="w-6 h-[1.5px] bg-slate-300" />
-            <span>REAL IMPACT</span>
-          </div>
-        </div>
-
       </div>
     </section>
   );
