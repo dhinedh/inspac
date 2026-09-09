@@ -222,45 +222,48 @@ export default function HomePage({ onOpenContact }) {
       {/* 6. Global Capability Hubs Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-950 border border-blue-800 text-xs font-bold text-cyan-300">
-            <Globe2 className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold text-blue-700">
+            <Globe2 className="w-3.5 h-3.5 text-blue-600" />
             <span>Global Presence & Support</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
             Singapore Headquarters & Offshore Technology Hubs
           </h2>
+          <p className="text-sm text-slate-600">
+            Connected across strategic nodes in the Asia-Pacific region to deliver continuous enterprise delivery and local governance.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="glass-panel-accent p-6 rounded-3xl border border-blue-500/30 space-y-4">
+          <div className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-cyan-400/50 transition-all space-y-4">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono px-3 py-1 rounded-md bg-blue-950 text-cyan-300 border border-blue-800 font-bold">SINGAPORE HQ</span>
-              <span className="text-[10px] text-emerald-400 font-bold uppercase">Active HQ</span>
+              <span className="text-xs font-mono px-3 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-200 font-bold">SINGAPORE HQ</span>
+              <span className="text-[10px] text-emerald-600 font-bold uppercase bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Active HQ</span>
             </div>
-            <h3 className="text-lg font-bold text-white">Global Headquarters</h3>
-            <p className="text-xs text-slate-300 leading-relaxed">
+            <h3 className="text-lg font-bold text-slate-900">Global Headquarters</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
               111 North Bridge Road, #23-05 Peninsula Plaza, Singapore 179098. Executive management, GRC advisory & PCI compliance governance.
             </p>
           </div>
 
-          <div className="glass-panel-accent p-6 rounded-3xl border border-blue-500/30 space-y-4">
+          <div className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-cyan-400/50 transition-all space-y-4">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono px-3 py-1 rounded-md bg-blue-950 text-cyan-300 border border-blue-800 font-bold">INDIA TECH CENTER</span>
-              <span className="text-[10px] text-cyan-300 font-bold uppercase">24/7 R&D Hub</span>
+              <span className="text-xs font-mono px-3 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-200 font-bold">INDIA TECH CENTER</span>
+              <span className="text-[10px] text-cyan-700 font-bold uppercase bg-cyan-50 px-2 py-0.5 rounded border border-cyan-200">24/7 R&D Hub</span>
             </div>
-            <h3 className="text-lg font-bold text-white">Offshore Development Center</h3>
-            <p className="text-xs text-slate-300 leading-relaxed">
+            <h3 className="text-lg font-bold text-slate-900">Offshore Development Center</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
               Offshore R&D Hub (Chennai / Bangalore). Full-stack software engineering, cloud DevOps, database clustering & automated pipelines.
             </p>
           </div>
 
-          <div className="glass-panel-accent p-6 rounded-3xl border border-blue-500/30 space-y-4">
+          <div className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-cyan-400/50 transition-all space-y-4">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono px-3 py-1 rounded-md bg-blue-950 text-cyan-300 border border-blue-800 font-bold">AUSTRALIA OPS</span>
-              <span className="text-[10px] text-cyan-300 font-bold uppercase">Regional Office</span>
+              <span className="text-xs font-mono px-3 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-200 font-bold">AUSTRALIA OPS</span>
+              <span className="text-[10px] text-blue-700 font-bold uppercase bg-blue-50 px-2 py-0.5 rounded border border-blue-200">Regional Office</span>
             </div>
-            <h3 className="text-lg font-bold text-white">Regional Operations Hub</h3>
-            <p className="text-xs text-slate-300 leading-relaxed">
+            <h3 className="text-lg font-bold text-slate-900">Regional Operations Hub</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
               Level 14, 385 Bourke Street, Melbourne VIC 3000. Client relationship desk, ERP consulting & APAC enterprise support.
             </p>
           </div>
