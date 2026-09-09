@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { 
   Code2, 
   Cloud, 
@@ -201,6 +201,24 @@ const servicesCards = [
       'Chaos Engineering & Disaster Recovery Validation'
     ],
     benefits: 'Zero critical production escape defects, 90% automation coverage, and guaranteed high-load resilience.'
+  },
+  {
+    num: '08',
+    id: 'managed-services',
+    title: '24/7 Managed Infrastructure & NOC/SOC',
+    category: 'Managed Operations',
+    icon: Database,
+    badgeBg: 'bg-blue-50 text-blue-600',
+    desc: 'Guarantee continuous business operations with 24/7 follow-the-sun NOC/SOC monitoring and sub-15m SLAs.',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80',
+    details: 'Modeled after HCLTech Managed Infrastructure and enterprise SRE practices. We provide follow-the-sun continuous monitoring, automated incident response runbooks, and sub-15 minute critical SLAs.',
+    features: [
+      '24/7/365 Global NOC/SOC Operations',
+      'High-Availability Database HA/DR Administration',
+      'Site Reliability Engineering & Automated Runbooks',
+      'Sub-15 Minute Incident Response Guarantees'
+    ],
+    benefits: '99.99% operational uptime, 85% proactive alert remediation, and zero after-hours engineering fatigue.'
   }
 ];
 
@@ -337,26 +355,11 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
     );
   }
 
-  // Handle clicking a service card
+  const navigate = useNavigate();
+
+  // Handle clicking a service card -> navigates directly to dedicated practice page
   const handleCardClick = (svc) => {
-    if (onSelectService) {
-      onSelectService({
-        id: svc.id,
-        title: svc.title,
-        category: svc.category,
-        summary: svc.desc,
-        description: svc.details || svc.desc,
-        features: svc.features || [
-          'Enterprise Consulting & Architectural Assessment',
-          'Production-Ready Implementation & Migration',
-          'Continuous Performance Monitoring & SLAs',
-          'Executive Documentation & Knowledge Transfer'
-        ],
-        benefits: svc.benefits || 'Streamlined processes, higher team productivity, and measurable business outcomes.'
-      });
-    } else if (onOpenContact) {
-      onOpenContact(`Inquiry: ${svc.title}`);
-    }
+    navigate(`/services/${svc.id}`);
   };
 
   // Render Services Mode (Benchmark: HCLTech & Cognizant/CTS)
@@ -408,7 +411,7 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
         {/* 8-Card Grid (4 cols x 2 rows) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           
-          {/* First 7 Services Cards */}
+          {/* All 8 Enterprise Practice Cards */}
           {servicesCards.map((svc) => {
             const IconComponent = svc.icon;
 
@@ -456,7 +459,7 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
 
                   {/* Action Link */}
                   <div className="inline-flex items-center space-x-1.5 text-[12px] font-bold text-[#0052cc] group-hover:translate-x-1 transition-transform pointer-events-auto">
-                    <span>Learn More</span>
+                    <span>Explore Practice</span>
                     <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
                   </div>
 
@@ -465,66 +468,6 @@ export default function ServicesSection({ onSelectService, onOpenContact, mode =
               </div>
             );
           })}
-
-          {/* Card 08: "+5 More Practices" Solid Blue CTA Card */}
-          <div
-            onClick={() => {
-              if (onSelectService) {
-                onSelectService({
-                  id: 'all-enterprise-practices',
-                  title: 'Full Suite of Enterprise Solutions',
-                  category: 'All Technology Practices',
-                  summary: 'Discover our complete suite including 24/7 Managed Infrastructure, Database HA Clustering, ITGC Controls & Custom Low-Code Engineering.',
-                  description: 'Inspac Solutions delivers end-to-end technology solutions across 8+ specialized enterprise domains inspired by global leaders HCLTech and Cognizant (CTS). Beyond our core services, we provide 24/7/365 NOC/SOC Managed Services, High-Availability Database Disaster Recovery, QSA PCI-DSS 4.0 Attestation, and SAP/Oracle ERP integration.',
-                  features: [
-                    '24/7/365 Global Managed Infrastructure & NOC/SOC Support',
-                    'Zero-Downtime Database Clustering & Multi-Region DR',
-                    'Third-Party Vendor ITGC Controls & Security Auditing',
-                    'Low-Code Enterprise Workflow Systems & API Middleware'
-                  ],
-                  benefits: 'Complete enterprise lifecycle coverage, guaranteed audit compliance, and round-the-clock APAC operational support.'
-                });
-              } else if (onOpenContact) {
-                onOpenContact('Enterprise Services Suite Inquiry');
-              }
-            }}
-            className="bg-gradient-to-br from-[#0052cc] via-[#0047d6] to-[#0038b8] rounded-[26px] p-6 text-white shadow-[0_4px_25px_rgba(0,82,204,0.25)] hover:shadow-[0_12px_35px_rgba(0,82,204,0.4)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group cursor-pointer min-h-[290px] sm:min-h-[305px]"
-          >
-            {/* Background Grid Pattern */}
-            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:14px_14px] pointer-events-none" />
-
-            {/* Top Row: Number & Grid Icon Badge */}
-            <div className="flex items-center justify-between relative z-10">
-              <span className="text-xs font-bold text-blue-200 tracking-wider font-mono">
-                +5
-              </span>
-              <div className="w-9 h-9 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/25">
-                <LayoutGrid className="w-4.5 h-4.5 stroke-[2]" />
-              </div>
-            </div>
-
-            {/* Middle Title & Description */}
-            <div className="my-auto py-2 relative z-10">
-              <h3 className="text-2xl sm:text-3xl font-black text-white leading-[1.08] mb-2">
-                +5<br />More<br />Practices
-              </h3>
-              <p className="text-[11px] sm:text-[12px] text-blue-100/90 leading-relaxed font-normal max-w-[90%]">
-                Explore our full suite of 24/7 Managed Infrastructure, Database HA & GRC advisory.
-              </p>
-            </div>
-
-            {/* Bottom Row */}
-            <div className="flex items-center justify-between pt-1 relative z-10">
-              <div className="inline-flex items-center space-x-1.5 text-[12px] font-bold text-white group-hover:translate-x-1 transition-transform">
-                <span>View Full Suite</span>
-                <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
-              </div>
-
-              <div className="w-9 h-9 rounded-full border border-white/40 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#0052cc] transition-all duration-300">
-                <ArrowRight className="w-4 h-4 stroke-[2.5]" />
-              </div>
-            </div>
-          </div>
 
         </div>
 

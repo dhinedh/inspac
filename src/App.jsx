@@ -13,6 +13,9 @@ import TrainingPage from './pages/TrainingPage';
 import CareersPage from './pages/CareersPage';
 import ContactPage from './pages/ContactPage';
 import BuyersGuidePage from './pages/BuyersGuidePage';
+import ProductDetailPage from './pages/ProductDetailPage';
+import ServiceDetailPage from './pages/ServiceDetailPage';
+import AiChatbot from './components/AiChatbot';
 
 import { CheckCircle2, X } from 'lucide-react';
 
@@ -34,7 +37,7 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-screen bg-navy-950 text-slate-100 font-sans selection:bg-brand-500 selection:text-white flex flex-col justify-between relative">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-800 font-sans selection:bg-cyan-500 selection:text-white flex flex-col justify-between relative">
       <ScrollToTop />
 
       {/* Toast Notification Banner */}
@@ -72,6 +75,10 @@ function AppContent() {
             element={<ClientsPage onOpenContact={handleOpenContact} />} 
           />
           <Route 
+            path="/services/:serviceId" 
+            element={<ServiceDetailPage onOpenContact={handleOpenContact} />} 
+          />
+          <Route 
             path="/services" 
             element={<ServicesPage onOpenContact={handleOpenContact} />} 
           />
@@ -95,11 +102,22 @@ function AppContent() {
             path="/buyers-guide" 
             element={<BuyersGuidePage onOpenContact={handleOpenContact} />} 
           />
+          <Route 
+            path="/products/:productId" 
+            element={<ProductDetailPage onOpenContact={handleOpenContact} />} 
+          />
+          <Route 
+            path="/products" 
+            element={<ProductDetailPage onOpenContact={handleOpenContact} />} 
+          />
         </Routes>
       </main>
 
       {/* Global Footer */}
       <Footer onOpenContact={handleOpenContact} />
+
+      {/* Global AI Copilot Chatbot */}
+      <AiChatbot onOpenContact={handleOpenContact} />
     </div>
   );
 }

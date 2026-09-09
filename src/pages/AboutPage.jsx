@@ -914,7 +914,7 @@ export default function AboutPage({ onOpenContact }) {
       {/* ========================================================================= */}
       {/* 09 — OUR JOURNEY (Harmonized with Home Page Dark Section Styling) */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-gradient-to-b from-[#030712] via-[#091338] to-[#04081c] text-[#e2e8f0] border-y border-slate-800 shadow-2xl relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-b from-[#00384f] via-[#004e6e] to-[#00587c] text-[#e2e8f0] border-y border-slate-800 shadow-2xl relative overflow-hidden">
         
         {/* Glowing Ambient Backdrop Lights */}
         <div className="absolute -top-32 -left-32 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />

@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Users, 
   CreditCard, 
@@ -581,7 +582,9 @@ export default function ProductsSection({ onOpenContact }) {
                   <div className="p-5 pt-3 flex-1 flex flex-col justify-between space-y-4">
                     <div className="space-y-1.5">
                       <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
-                        {prod.title}
+                        <Link to={`/products/${prod.id}`}>
+                          {prod.title}
+                        </Link>
                       </h3>
                       <p className="text-[11px] font-semibold text-blue-600">
                         {prod.tagline}
@@ -591,15 +594,23 @@ export default function ProductsSection({ onOpenContact }) {
                       </p>
                     </div>
 
-                    {/* Learn More / Request Demo Link */}
-                    <button
-                      type="button"
-                      onClick={() => onOpenContact && onOpenContact(`Product Inquiry: ${prod.title} (${prod.tagline})`)}
-                      className="inline-flex items-center space-x-1.5 text-xs sm:text-[13px] font-bold text-blue-600 hover:text-blue-700 transition-colors pt-1 group/btn w-fit cursor-pointer"
-                    >
-                      <span>Explore & Request Demo</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-                    </button>
+                    {/* Learn More & Explore Page Link */}
+                    <div className="pt-2 flex items-center justify-between border-t border-slate-100">
+                      <Link
+                        to={`/products/${prod.id}`}
+                        className="inline-flex items-center space-x-1.5 text-xs sm:text-[13px] font-bold text-blue-600 hover:text-blue-700 transition-colors group/btn cursor-pointer"
+                      >
+                        <span>Explore Product</span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => onOpenContact && onOpenContact(`Product Demo: ${prod.title}`)}
+                        className="text-[11px] font-semibold text-slate-500 hover:text-blue-600 transition-colors"
+                      >
+                        Request Demo
+                      </button>
+                    </div>
                   </div>
                 </div>
               );

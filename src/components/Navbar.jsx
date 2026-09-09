@@ -10,6 +10,7 @@ import {
   PhoneCall, 
   Mail,
   Sparkles,
+  Bot,
   BarChart3,
   Database,
   Layers,
@@ -77,158 +78,182 @@ export default function Navbar({ onOpenContact }) {
 
   const whatWeDoCategories = [
     {
+      id: "digital-engineering",
+      path: "/services/digital-engineering",
       title: "Digital Engineering",
       icon: Code2,
       subHeader: "DIGITAL ENGINEERING & MODERNIZATION",
       items: [
-        { name: "Cloud-Native Web & Mobile Engineering", path: "/services" },
-        { name: "Legacy Decoupling & Microservices", path: "/services" },
-        { name: "High-Throughput REST & GraphQL APIs", path: "/services" },
-        { name: "Event-Driven Distributed Messaging", path: "/services" }
+        { name: "Cloud-Native Web & Mobile Engineering", path: "/services/digital-engineering" },
+        { name: "Legacy Decoupling & Microservices", path: "/services/digital-engineering" },
+        { name: "High-Throughput REST & GraphQL APIs", path: "/services/digital-engineering" },
+        { name: "Event-Driven Distributed Messaging", path: "/services/digital-engineering" }
       ]
     },
     {
+      id: "cloud-devsecops",
+      path: "/services/cloud-devsecops",
       title: "Cloud & DevSecOps",
       icon: Cloud,
       subHeader: "CLOUD TRANSFORMATION & DEVSECOPS",
       items: [
-        { name: "AWS, Azure & GCP Multi-Cloud Strategy", path: "/services" },
-        { name: "Terraform Infrastructure as Code (IaC)", path: "/services" },
-        { name: "Kubernetes & Service Mesh Orchestration", path: "/services" },
-        { name: "DevSecOps CI/CD & FinOps Governance", path: "/services" }
+        { name: "AWS, Azure & GCP Multi-Cloud Strategy", path: "/services/cloud-devsecops" },
+        { name: "Terraform Infrastructure as Code (IaC)", path: "/services/cloud-devsecops" },
+        { name: "Kubernetes & Service Mesh Orchestration", path: "/services/cloud-devsecops" },
+        { name: "DevSecOps CI/CD & FinOps Governance", path: "/services/cloud-devsecops" }
       ]
     },
     {
+      id: "ai-data-lakehouse",
+      path: "/services/ai-data-lakehouse",
       title: "Enterprise AI & Data",
       icon: BarChart3,
       subHeader: "ENTERPRISE AI & MODERN LAKEHOUSE",
       items: [
-        { name: "Governed Lakehouses (Snowflake/BigQuery)", path: "/services" },
-        { name: "Real-Time Streaming Pipelines (dbt/Spark)", path: "/services" },
-        { name: "Generative AI, Enterprise RAG & LLMs", path: "/services" },
-        { name: "Predictive Intelligence & BI Scorecards", path: "/services" }
+        { name: "Governed Lakehouses (Snowflake/BigQuery)", path: "/services/ai-data-lakehouse" },
+        { name: "Real-Time Streaming Pipelines (dbt/Spark)", path: "/services/ai-data-lakehouse" },
+        { name: "Generative AI, Enterprise RAG & LLMs", path: "/services/ai-data-lakehouse" },
+        { name: "Predictive Intelligence & BI Scorecards", path: "/services/ai-data-lakehouse" }
       ]
     },
     {
+      id: "cybersecurity-grc",
+      path: "/services/cybersecurity-grc",
       title: "Cybersecurity & GRC",
       icon: ShieldCheck,
       subHeader: "CYBERSECURITY & COMPLIANCE ADVISORY",
       items: [
-        { name: "PCI-DSS v4.0 Attestation (AOC) Support", path: "/compliance" },
-        { name: "Cardholder Data Environment Isolation", path: "/compliance" },
-        { name: "ISO 27001 & NIST Security Frameworks", path: "/compliance" },
-        { name: "Third-Party Vendor Risk & ITGC Audits", path: "/compliance" }
+        { name: "PCI-DSS v4.0 Attestation (AOC) Support", path: "/services/cybersecurity-grc" },
+        { name: "Cardholder Data Environment Isolation", path: "/services/cybersecurity-grc" },
+        { name: "ISO 27001 & NIST Security Frameworks", path: "/services/cybersecurity-grc" },
+        { name: "Third-Party Vendor Risk & ITGC Audits", path: "/services/cybersecurity-grc" }
       ]
     },
     {
+      id: "enterprise-erp",
+      path: "/services/enterprise-erp",
       title: "Enterprise ERP & Platforms",
       icon: Layers,
       subHeader: "ENTERPRISE APPLICATION SERVICES",
       items: [
-        { name: "SAP S/4HANA & Oracle Cloud ERP", path: "/services" },
-        { name: "Cross-Module Workflow Automation", path: "/services" },
-        { name: "Supply Chain & Financial Ledger Sync", path: "/services" },
-        { name: "Legacy ERP Modernization Connectors", path: "/services" }
+        { name: "SAP S/4HANA & Oracle Cloud ERP", path: "/services/enterprise-erp" },
+        { name: "Cross-Module Workflow Automation", path: "/services/enterprise-erp" },
+        { name: "Supply Chain & Financial Ledger Sync", path: "/services/enterprise-erp" },
+        { name: "Legacy ERP Modernization Connectors", path: "/services/enterprise-erp" }
       ]
     },
     {
+      id: "process-automation",
+      path: "/services/process-automation",
       title: "Intelligent Automation",
       icon: GitPullRequest,
       subHeader: "DIGITAL OPERATIONS & RPA",
       items: [
-        { name: "Robotic Process Automation (UiPath/Power)", path: "/services" },
-        { name: "Intelligent Document Processing (IDP)", path: "/services" },
-        { name: "Business Process Re-engineering (BPR)", path: "/services" },
-        { name: "Operational Bottleneck Analytics", path: "/services" }
+        { name: "Robotic Process Automation (UiPath/Power)", path: "/services/process-automation" },
+        { name: "Intelligent Document Processing (IDP)", path: "/services/process-automation" },
+        { name: "Business Process Re-engineering (BPR)", path: "/services/process-automation" },
+        { name: "Operational Bottleneck Analytics", path: "/services/process-automation" }
       ]
     },
     {
+      id: "quality-engineering",
+      path: "/services/quality-engineering",
       title: "Quality Engineering",
       icon: CheckCircle2,
       subHeader: "QUALITY ENGINEERING & ASSURANCE",
       items: [
-        { name: "Continuous Automated Testing (Playwright)", path: "/services" },
-        { name: "API Load & High-Scale Stress Testing", path: "/services" },
-        { name: "OWASP Security & Vulnerability QA", path: "/services" },
-        { name: "Chaos Engineering & Disaster Recovery", path: "/services" }
+        { name: "Continuous Automated Testing (Playwright)", path: "/services/quality-engineering" },
+        { name: "API Load & High-Scale Stress Testing", path: "/services/quality-engineering" },
+        { name: "OWASP Security & Vulnerability QA", path: "/services/quality-engineering" },
+        { name: "Chaos Engineering & Disaster Recovery", path: "/services/quality-engineering" }
       ]
     },
     {
+      id: "managed-services",
+      path: "/services/managed-services",
       title: "24/7 Managed Services",
       icon: Database,
       subHeader: "MANAGED INFRASTRUCTURE & SERVICE DESK",
       items: [
-        { name: "24/7/365 Global NOC/SOC Operations", path: "/services" },
-        { name: "High Availability Database HA/DR", path: "/services" },
-        { name: "Omnichannel L1-L3 Support Desk", path: "/services" },
-        { name: "Sub-15 Minute Incident Response SLAs", path: "/services" }
+        { name: "24/7/365 Global NOC/SOC Operations", path: "/services/managed-services" },
+        { name: "High Availability Database HA/DR", path: "/services/managed-services" },
+        { name: "Omnichannel L1-L3 Support Desk", path: "/services/managed-services" },
+        { name: "Sub-15 Minute Incident Response SLAs", path: "/services/managed-services" }
       ]
     }
   ];
 
   const productsList = [
     {
+      id: "pulse-crm",
       name: "Inspac PulseCRM",
       category: "Sales & CRM",
       desc: "Omnichannel Sales & Pipeline Cloud (Zoho CRM)",
       icon: Users,
-      path: "/#products",
+      path: "/products/pulse-crm",
       badgeColor: "bg-blue-100 text-blue-700 border-blue-200"
     },
     {
+      id: "books-finance",
       name: "Inspac Books & Finance",
       category: "Finance & Accounting",
       desc: "Enterprise Accounting & Tax Suite (Zoho Books)",
       icon: CreditCard,
-      path: "/#products",
+      path: "/products/books-finance",
       badgeColor: "bg-emerald-100 text-emerald-700 border-emerald-200"
     },
     {
+      id: "desk-support",
       name: "Inspac Desk & Support",
       category: "Service & Helpdesk",
       desc: "AI Omnichannel Support Desk (Zoho Desk)",
       icon: Headphones,
-      path: "/#products",
+      path: "/products/desk-support",
       badgeColor: "bg-purple-100 text-purple-700 border-purple-200"
     },
     {
+      id: "people-hrms",
       name: "Inspac People HRMS",
       category: "Human Resources",
       desc: "Workforce & Automated Payroll (Zoho People)",
       icon: UserCheck,
-      path: "/#products",
+      path: "/products/people-hrms",
       badgeColor: "bg-orange-100 text-orange-700 border-orange-200"
     },
     {
+      id: "analytics-bi",
       name: "Inspac Analytics BI",
       category: "Data & BI",
       desc: "Visual Executive BI & Analytics (Zoho Analytics)",
       icon: BarChart2,
-      path: "/#products",
+      path: "/products/analytics-bi",
       badgeColor: "bg-sky-100 text-sky-700 border-sky-200"
     },
     {
+      id: "creator-studio",
       name: "Inspac Creator Studio",
       category: "Low-Code Engineering",
       desc: "Enterprise Low-Code App Platform (Zoho Creator)",
       icon: Code2,
-      path: "/#products",
+      path: "/products/creator-studio",
       badgeColor: "bg-indigo-100 text-indigo-700 border-indigo-200"
     },
     {
+      id: "vault-directory",
       name: "Inspac Vault & Directory",
       category: "Security & Identity",
       desc: "Zero-Trust Secrets & SSO Vault (Zoho Vault)",
       icon: ShieldCheck,
-      path: "/#products",
+      path: "/products/vault-directory",
       badgeColor: "bg-rose-100 text-rose-700 border-rose-200"
     },
     {
+      id: "flow-automation",
       name: "Inspac Flow Automation",
       category: "Integration & iPaaS",
       desc: "Cross-App Integration Bus (Zoho Flow)",
       icon: GitBranch,
-      path: "/#products",
+      path: "/products/flow-automation",
       badgeColor: "bg-amber-100 text-amber-700 border-amber-200"
     }
   ];
@@ -258,27 +283,36 @@ export default function Navbar({ onOpenContact }) {
       <header 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-[#04081c]/95 backdrop-blur-xl border-b border-blue-900/40 shadow-2xl shadow-black/80 py-3.5' 
-            : 'bg-gradient-to-b from-[#04081c]/90 via-[#04081c]/50 to-transparent py-5 sm:py-6'
+            ? 'bg-[#00587c]/95 backdrop-blur-xl border-b border-cyan-800/40 shadow-2xl shadow-black/60 py-3.5' 
+            : 'bg-gradient-to-b from-[#00587c]/90 via-[#00587c]/50 to-transparent py-5 sm:py-6'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
           <div className="flex items-center justify-between">
 
-            {/* Inspac Solutions Logo & Tagline (From reference site) */}
-            <Link to="/" className="flex flex-col group select-none py-1">
-              <div className="flex items-center space-x-1.5">
-                <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-white leading-none font-sans group-hover:text-cyan-300 transition-colors">
-                  Inspac Solutions
-                </span>
-                <span className="text-xs font-bold text-cyan-400 font-mono">Pte Ltd</span>
+            {/* Inspac Solutions Logo & Tagline */}
+            <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group select-none py-1 min-w-0 max-w-[75%] sm:max-w-none">
+              <div className="relative shrink-0">
+                <img 
+                  src="/inspac-logo.png" 
+                  alt="Inspac Solutions Pte Ltd Logo" 
+                  className="w-10 h-10 sm:w-12 sm:h-12 object-contain group-hover:scale-105 transition-transform drop-shadow-md"
+                />
               </div>
-              <span className="text-[10px] font-semibold text-slate-300 tracking-wide leading-tight mt-1">
-                Global Resource - Smart Solutions
-              </span>
-              <span className="text-[9px] font-bold tracking-widest text-cyan-400 uppercase leading-none mt-0.5">
-                India • Australia • Singapore
-              </span>
+              <div className="flex flex-col min-w-0">
+                <div className="flex items-center space-x-1 sm:space-x-1.5 truncate">
+                  <span className="text-base sm:text-2xl font-extrabold tracking-tight text-white leading-none font-sans group-hover:text-cyan-300 transition-colors truncate">
+                    Inspac Solutions
+                  </span>
+                  <span className="text-[10px] sm:text-xs font-bold text-cyan-400 font-mono shrink-0">Pte Ltd</span>
+                </div>
+                <span className="text-[9px] sm:text-[10px] font-semibold text-slate-300 tracking-wide leading-tight mt-0.5 sm:mt-1 truncate">
+                  Global Resource - Smart Solutions
+                </span>
+                <span className="text-[8px] sm:text-[9px] font-bold tracking-widest text-cyan-400 uppercase leading-none mt-0.5 hidden xs:block">
+                  India • Australia • Singapore
+                </span>
+              </div>
             </Link>
 
             {/* Desktop Navigation Links (From reference site) */}
@@ -309,14 +343,21 @@ export default function Navbar({ onOpenContact }) {
                 About Us
               </NavLink>
 
-              {/* Products Dropdown (Replaces Clients) */}
+              {/* Products Dropdown */}
               <div 
                 className="relative py-2 group cursor-pointer"
                 onMouseEnter={() => handleMouseEnter('products')}
                 onMouseLeave={handleMouseLeave}
               >
                 <div 
-                  onClick={() => navigate('/services')}
+                  onClick={() => {
+                    if (window.location.pathname === '/') {
+                      const el = document.getElementById('products');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                      navigate('/#products');
+                    }
+                  }}
                   className="flex items-center text-sm font-semibold text-white/90 hover:text-white transition-colors"
                 >
                   <span>Products</span>
@@ -325,66 +366,33 @@ export default function Navbar({ onOpenContact }) {
                   }`} />
                 </div>
 
-                {/* Products Light Card Dropdown Container */}
+                {/* Simple Products Dropdown */}
                 {activeDropdown === 'products' && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[560px] max-w-[94vw] bg-[#f4f6fa] text-slate-800 rounded-2xl shadow-2xl shadow-black/80 border border-slate-200/90 p-4 sm:p-5 z-50 animate-fadeIn">
-                    {/* Top Header */}
-                    <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-200/80">
-                      <div className="flex items-center space-x-2">
-                        <Sparkles className="w-4 h-4 text-blue-600" />
-                        <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Enterprise Products</span>
-                      </div>
-                      <span className="text-[11px] font-semibold text-blue-600 bg-blue-100/80 px-2.5 py-0.5 rounded-full">
-                        {productsList.length} Software Solutions
-                      </span>
-                    </div>
-
-                    {/* Products Stacked One by One - Simple & Elegant (No Icons) */}
-                    <div className="space-y-2 max-h-[420px] overflow-y-auto pr-1">
-                      {productsList.map((prod, idx) => (
-                        <Link
-                          key={idx}
-                          to={prod.path}
-                          onClick={() => setActiveDropdown(null)}
-                          className="flex items-center justify-between bg-white hover:bg-blue-50/80 border border-slate-200/80 hover:border-blue-300 rounded-xl px-4 py-3 shadow-2xs hover:shadow-sm transition-all group text-left"
-                        >
-                          <div className="min-w-0 flex-1 pr-2">
-                            <div className="flex items-center space-x-2 flex-wrap gap-y-0.5">
-                              <span className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-blue-600 transition-colors">
-                                {prod.name}
-                              </span>
-                              <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border ${prod.badgeColor}`}>
-                                {prod.category}
-                              </span>
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white rounded-xl shadow-xl shadow-slate-900/15 border border-slate-100 p-1.5 z-50 animate-fadeIn">
+                    <div className="space-y-0.5">
+                      {productsList.map((prod, idx) => {
+                        const Icon = prod.icon;
+                        return (
+                          <Link
+                            key={idx}
+                            to={prod.path}
+                            onClick={() => setActiveDropdown(null)}
+                            className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-all group"
+                          >
+                            <div className="w-7 h-7 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                              <Icon className="w-3.5 h-3.5" />
                             </div>
-                            <p className="text-[11px] text-slate-500 mt-0.5 leading-snug font-normal">
-                              {prod.desc}
-                            </p>
-                          </div>
-                          <div className="shrink-0">
-                            <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-
-                    {/* Bottom CTA bar */}
-                    <div className="mt-4 pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs px-1">
-                      <span className="text-slate-500 font-medium">Looking for custom software products or enterprise integration?</span>
-                      <button
-                        onClick={() => {
-                          setActiveDropdown(null);
-                          if (onOpenContact) {
-                            onOpenContact('Custom Product Solution');
-                          } else {
-                            navigate('/contact');
-                          }
-                        }}
-                        className="inline-flex items-center space-x-1 font-bold text-blue-600 hover:text-blue-800 transition-colors shrink-0 ml-2"
-                      >
-                        <span>Request Custom Build</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </button>
+                            <div className="min-w-0 flex-1">
+                              <p className="text-xs font-semibold text-slate-800 group-hover:text-blue-600 transition-colors truncate">
+                                {prod.name}
+                              </p>
+                              <p className="text-[10px] text-slate-400 font-medium truncate">
+                                {prod.category}
+                              </p>
+                            </div>
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 )}
@@ -422,7 +430,7 @@ export default function Navbar({ onOpenContact }) {
                               onMouseEnter={() => setSelectedCategoryIdx(idx)}
                               onClick={() => {
                                 setActiveDropdown(null);
-                                navigate('/services');
+                                navigate(cat.path);
                               }}
                               className={`flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer text-xs transition-all ${
                                 isSelected
@@ -500,6 +508,17 @@ export default function Navbar({ onOpenContact }) {
                 Contact Us
               </NavLink>
 
+              {/* AI Copilot Quick Trigger */}
+              <button
+                onClick={() => window.dispatchEvent(new CustomEvent('open-inspac-chat'))}
+                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-400/40 text-cyan-300 hover:text-white text-xs font-bold transition-all shadow-md shadow-cyan-950/50 hover:shadow-cyan-500/20 group"
+                title="Open Inspac AI Copilot"
+              >
+                <Bot className="w-3.5 h-3.5 text-cyan-400 group-hover:animate-bounce" />
+                <span>AI Copilot</span>
+                <Sparkles className="w-3 h-3 text-cyan-300" />
+              </button>
+
             </nav>
 
             {/* Mobile Menu Button */}
@@ -518,7 +537,7 @@ export default function Navbar({ onOpenContact }) {
 
         {/* Mobile Accordion Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-[#04081c] border-t border-blue-900/60 mt-3 px-6 pt-4 pb-8 space-y-4 animate-fadeIn max-h-[85vh] overflow-y-auto">
+          <div className="lg:hidden bg-[#00587c] border-t border-cyan-800/60 mt-3 px-6 pt-4 pb-8 space-y-4 animate-fadeIn max-h-[85vh] overflow-y-auto">
             
             {/* What We Do Mobile Accordion */}
             <div className="border-b border-blue-950/80 pb-2">
@@ -672,6 +691,21 @@ export default function Navbar({ onOpenContact }) {
               >
                 Contact Us
               </Link>
+            </div>
+
+            {/* AI Copilot Mobile Button */}
+            <div className="pt-2">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  window.dispatchEvent(new CustomEvent('open-inspac-chat'));
+                }}
+                className="w-full flex items-center justify-center space-x-2 py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold text-sm shadow-lg border border-cyan-400/40"
+              >
+                <Bot className="w-4 h-4" />
+                <span>Launch Inspac AI Copilot</span>
+                <Sparkles className="w-3.5 h-3.5 text-cyan-200" />
+              </button>
             </div>
 
             <div className="pt-4 border-t border-blue-900/60 text-xs text-slate-400 space-y-2">

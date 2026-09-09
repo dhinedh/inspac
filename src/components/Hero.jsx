@@ -15,7 +15,7 @@ export default function Hero({ onOpenContact }) {
       buttonText: "Explore Our Services",
       secondaryButtonText: "Get in Touch",
       path: "/services",
-      bgGradient: "from-[#020617] via-[#0b1638] to-[#020617]",
+      bgGradient: "from-[#001f2c] via-[#00587c] to-[#001f2c]",
       visualType: "executive",
       bgImage: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80"
     },
@@ -27,7 +27,7 @@ export default function Hero({ onOpenContact }) {
       buttonText: "Explore Our Services",
       secondaryButtonText: "Get in Touch",
       path: "/services",
-      bgGradient: "from-[#030712] via-[#091533] to-[#030712]",
+      bgGradient: "from-[#001822] via-[#004e6e] to-[#001822]",
       visualType: "security",
       bgImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1920&q=80"
     },
@@ -39,7 +39,7 @@ export default function Hero({ onOpenContact }) {
       buttonText: "Discover More",
       secondaryButtonText: "Get in Touch",
       path: "/about",
-      bgGradient: "from-[#000524] via-[#000c4e] to-[#000524]",
+      bgGradient: "from-[#00121a] via-[#00587c] to-[#00121a]",
       visualType: "globe",
       bgImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80"
     }
@@ -63,7 +63,7 @@ export default function Hero({ onOpenContact }) {
   const activeSlide = slides[currentSlide];
 
   return (
-    <section id="home" className="relative w-full min-h-[630px] lg:min-h-[680px] h-[85vh] max-h-[880px] overflow-hidden bg-[#020518]">
+    <section id="home" className="relative w-full min-h-[560px] sm:min-h-[630px] lg:min-h-[680px] h-auto lg:h-[85vh] max-h-[920px] overflow-hidden bg-[#020518]">
       
       {/* Background Slides with Fade Transition */}
       {slides.map((slide, idx) => (
@@ -99,18 +99,18 @@ export default function Hero({ onOpenContact }) {
       ))}
 
       {/* Main Hero Content Overlay */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-full relative z-20 flex flex-col justify-center pt-24 pb-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 h-full relative z-20 flex flex-col justify-center pt-20 sm:pt-24 pb-20 sm:pb-24">
         
         {/* Top/Middle Split Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center my-auto">
           
           {/* Left Side: Giant Headline & Small Tagline */}
-          <div className="lg:col-span-7 space-y-4 text-left">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-xs font-bold text-cyan-300 uppercase tracking-widest">
+          <div className="lg:col-span-7 space-y-3 sm:space-y-4 text-left">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-[10px] sm:text-xs font-bold text-cyan-300 uppercase tracking-widest">
               <span>{activeSlide.tagline}</span>
             </div>
             
-            <h1 className="text-4xl sm:text-6xl lg:text-[58px] font-black tracking-tight text-white leading-[1.12] font-sans drop-shadow-lg">
+            <h1 className="text-3xl sm:text-5xl lg:text-[58px] font-black tracking-tight text-white leading-[1.15] font-sans drop-shadow-lg">
               {activeSlide.headline}
             </h1>
           </div>

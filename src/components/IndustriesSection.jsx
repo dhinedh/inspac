@@ -132,7 +132,7 @@ export default function IndustriesSection({ onOpenContact }) {
     : industriesData.filter(item => item.category === activeCategory);
 
   return (
-    <section id="industries" className="py-24 relative bg-[#04081c] text-white overflow-hidden scroll-mt-20">
+    <section id="industries" className="py-24 relative bg-[#00587c] text-white overflow-hidden scroll-mt-20">
       
       {/* Ambient background glows */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />

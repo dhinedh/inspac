@@ -28,7 +28,7 @@ export default function Footer({ onOpenContact }) {
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
 
       {/* Pre-Footer Corporate Executive CTA Banner */}
-      <div className="border-b border-slate-800/80 bg-gradient-to-r from-slate-950 via-[#060e2e] to-slate-950">
+      <div className="border-b border-slate-800/80 bg-gradient-to-r from-slate-950 via-[#00384f] to-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             
@@ -78,15 +78,17 @@ export default function Footer({ onOpenContact }) {
             
             {/* Logo */}
             <Link to="/" className="inline-flex items-center space-x-3.5 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-500 flex items-center justify-center shadow-lg shadow-blue-600/30 group-hover:scale-105 transition-transform">
-                <Shield className="w-5.5 h-5.5 text-white" />
-              </div>
+              <img 
+                src="/inspac-logo.png" 
+                alt="Inspac Solutions Pte Ltd Logo" 
+                className="w-12 h-12 object-contain group-hover:scale-105 transition-transform drop-shadow-lg"
+              />
               <div className="flex flex-col">
-                <span className="text-2xl font-black tracking-tight text-white leading-none font-sans">
-                  inspac
+                <span className="text-2xl font-extrabold tracking-tight text-white leading-none font-sans">
+                  Inspac Solutions
                 </span>
-                <span className="text-[10px] font-extrabold tracking-[0.3em] text-cyan-400 uppercase leading-tight mt-0.5">
-                  SOLUTIONS
+                <span className="text-[10px] font-bold tracking-[0.25em] text-cyan-400 uppercase leading-tight mt-1">
+                  PTE LTD · SINGAPORE
                 </span>
               </div>
             </Link>

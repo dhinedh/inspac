@@ -45,7 +45,7 @@ export default function HomePage({ onOpenContact }) {
   const [selectedService, setSelectedService] = useState(null);
 
   return (
-    <div className="space-y-24 pb-24 bg-[#04081c]">
+    <div className="space-y-24 pb-24 bg-[#f8fafc] text-slate-800">
       
       {/* 1. Hero Section */}
       <Hero onOpenContact={onOpenContact} />
@@ -70,7 +70,7 @@ export default function HomePage({ onOpenContact }) {
       />
 
       {/* 5. Practice Areas & Specializations (Matching Reference Design) */}
-      <section className="py-20 sm:py-28 bg-gradient-to-b from-[#030712] via-[#091338] to-[#04081c] text-[#e2e8f0] relative overflow-hidden font-serif border-y border-cyan-900/40">
+      <section className="py-20 sm:py-28 bg-gradient-to-b from-[#00384f] via-[#004e6e] to-[#00587c] text-[#e2e8f0] relative overflow-hidden font-serif border-y border-cyan-900/40">
         {/* Glowing Ambient Backdrop Lights */}
         <div className="absolute -top-32 -left-32 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
