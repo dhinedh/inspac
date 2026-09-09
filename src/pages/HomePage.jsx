@@ -45,7 +45,7 @@ export default function HomePage({ onOpenContact }) {
   const [selectedService, setSelectedService] = useState(null);
 
   return (
-    <div className="space-y-24 pb-24 bg-[#f8fafc] text-slate-800">
+    <div className="space-y-24 pb-24 bg-[#00587c]">
       
       {/* 1. Hero Section */}
       <Hero onOpenContact={onOpenContact} />
@@ -220,52 +220,157 @@ export default function HomePage({ onOpenContact }) {
       </section>
 
       {/* 6. Global Capability Hubs Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold text-blue-700">
-            <Globe2 className="w-3.5 h-3.5 text-blue-600" />
-            <span>Global Presence & Support</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Singapore Headquarters & Offshore Technology Hubs
-          </h2>
-          <p className="text-sm text-slate-600">
-            Connected across strategic nodes in the Asia-Pacific region to deliver continuous enterprise delivery and local governance.
-          </p>
-        </div>
+      <section className="py-20 sm:py-24 bg-gradient-to-b from-[#002b3d] via-[#011420] to-[#001c29] border-t border-cyan-800/40 relative overflow-hidden">
+        {/* Ambient Glowing Radial Light Accents */}
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-cyan-400/50 transition-all space-y-4">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-mono px-3 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-200 font-bold">SINGAPORE HQ</span>
-              <span className="text-[10px] text-emerald-600 font-bold uppercase bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Active HQ</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-cyan-950/90 border border-cyan-500/30 text-xs font-bold text-cyan-300 shadow-md">
+              <Globe2 className="w-4 h-4 text-cyan-400" />
+              <span>Global Presence & Support</span>
             </div>
-            <h3 className="text-lg font-bold text-slate-900">Global Headquarters</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              111 North Bridge Road, #23-05 Peninsula Plaza, Singapore 179098. Executive management, GRC advisory & PCI compliance governance.
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight drop-shadow-md">
+              Singapore Headquarters & Offshore Technology Hubs
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
+              Strategic worldwide delivery nodes providing continuous enterprise engineering, 24/7 managed operations, and GRC compliance advisory.
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-cyan-400/50 transition-all space-y-4">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-mono px-3 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-200 font-bold">INDIA TECH CENTER</span>
-              <span className="text-[10px] text-cyan-700 font-bold uppercase bg-cyan-50 px-2 py-0.5 rounded border border-cyan-200">24/7 R&D Hub</span>
-            </div>
-            <h3 className="text-lg font-bold text-slate-900">Offshore Development Center</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Offshore R&D Hub (Chennai / Bangalore). Full-stack software engineering, cloud DevOps, database clustering & automated pipelines.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {/* Card 1: Singapore HQ */}
+            <div className="bg-slate-900/90 backdrop-blur-xl rounded-3xl border border-cyan-500/30 hover:border-cyan-400/70 shadow-2xl shadow-black/60 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+              <div>
+                {/* City Photo Header */}
+                <div className="relative h-44 w-full overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=800&q=80" 
+                    alt="Singapore Global Headquarters" 
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-90"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+                    <span className="text-xs font-mono px-3 py-1 rounded-md bg-navy-950/90 text-cyan-300 border border-cyan-800/80 font-bold shadow-md flex items-center gap-1.5 backdrop-blur-md">
+                      <span>🇸🇬</span> SINGAPORE HQ
+                    </span>
+                    <span className="text-[10px] text-emerald-300 font-bold uppercase tracking-wider bg-emerald-950/90 px-2.5 py-1 rounded-full border border-emerald-600/60 shadow-md backdrop-blur-md">
+                      Active HQ
+                    </span>
+                  </div>
+                </div>
 
-          <div className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-cyan-400/50 transition-all space-y-4">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-mono px-3 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-200 font-bold">AUSTRALIA OPS</span>
-              <span className="text-[10px] text-blue-700 font-bold uppercase bg-blue-50 px-2 py-0.5 rounded border border-blue-200">Regional Office</span>
+                <div className="p-6 space-y-3">
+                  <h3 className="text-lg font-bold text-white group-hover:text-cyan-300 transition">Global Headquarters</h3>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    111 North Bridge Road, #23-05 Peninsula Plaza, Singapore 179098. Corporate executive hub, GRC advisory & PCI-DSS governance.
+                  </p>
+                  <div className="pt-2 flex flex-wrap gap-1.5">
+                    <span className="px-2 py-0.5 rounded text-[10px] bg-slate-800/80 text-slate-300 border border-slate-700/60">Corporate Executive Hub</span>
+                    <span className="px-2 py-0.5 rounded text-[10px] bg-slate-800/80 text-slate-300 border border-slate-700/60">GRC & Audit Advisory</span>
+                    <span className="px-2 py-0.5 rounded text-[10px] bg-slate-800/80 text-slate-300 border border-slate-700/60">PCI-DSS Governance</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="px-6 pb-6 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-cyan-300">
+                <a href="tel:+6598271155" className="hover:underline flex items-center gap-1">
+                  <PhoneCall className="w-3 h-3" /> +65 98271155
+                </a>
+                <a href="mailto:mkts@inspacsolutions.com" className="hover:underline flex items-center gap-1">
+                  <Mail className="w-3 h-3" /> Email HQ
+                </a>
+              </div>
             </div>
-            <h3 className="text-lg font-bold text-slate-900">Regional Operations Hub</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Level 14, 385 Bourke Street, Melbourne VIC 3000. Client relationship desk, ERP consulting & APAC enterprise support.
-            </p>
+
+            {/* Card 2: India Tech Center */}
+            <div className="bg-slate-900/90 backdrop-blur-xl rounded-3xl border border-cyan-500/30 hover:border-cyan-400/70 shadow-2xl shadow-black/60 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+              <div>
+                {/* City Photo Header */}
+                <div className="relative h-44 w-full overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=800&q=80" 
+                    alt="India Offshore Tech Center" 
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-90"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+                    <span className="text-xs font-mono px-3 py-1 rounded-md bg-navy-950/90 text-cyan-300 border border-cyan-800/80 font-bold shadow-md flex items-center gap-1.5 backdrop-blur-md">
+                      <span>🇮🇳</span> INDIA TECH CENTER
+                    </span>
+                    <span className="text-[10px] text-cyan-300 font-bold uppercase tracking-wider bg-blue-950/90 px-2.5 py-1 rounded-full border border-blue-600/60 shadow-md backdrop-blur-md">
+                      24/7 R&D Hub
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-6 space-y-3">
+                  <h3 className="text-lg font-bold text-white group-hover:text-cyan-300 transition">Offshore Development Center</h3>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    IT Tech Hub, Chennai / Bangalore, India. Full-stack software engineering, cloud DevOps, 24/7 managed NOC & automated pipelines.
+                  </p>
+                  <div className="pt-2 flex flex-wrap gap-1.5">
+                    <span className="px-2 py-0.5 rounded text-[10px] bg-slate-800/80 text-slate-300 border border-slate-700/60">Full-Stack Engineering</span>
+                    <span className="px-2 py-0.5 rounded text-[10px] bg-slate-800/80 text-slate-300 border border-slate-700/60">Cloud & DevSecOps</span>
+                    <span className="px-2 py-0.5 rounded text-[10px] bg-slate-800/80 text-slate-300 border border-slate-700/60">24/7 Managed NOC</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="px-6 pb-6 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-cyan-300">
+                <a href="tel:+914445678900" className="hover:underline flex items-center gap-1">
+                  <PhoneCall className="w-3 h-3" /> +91 44 4567 8900
+                </a>
+                <a href="mailto:india@inspacsolutions.com" className="hover:underline flex items-center gap-1">
+                  <Mail className="w-3 h-3" /> Email Tech Hub
+                </a>
+              </div>
+            </div>
+
+            {/* Card 3: Australia Ops */}
+            <div className="bg-slate-900/90 backdrop-blur-xl rounded-3xl border border-cyan-500/30 hover:border-cyan-400/70 shadow-2xl shadow-black/60 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+              <div>
+                {/* City Photo Header */}
+                <div className="relative h-44 w-full overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80" 
+                    alt="Australia Regional Operations" 
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-90"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+                    <span className="text-xs font-mono px-3 py-1 rounded-md bg-navy-950/90 text-cyan-300 border border-cyan-800/80 font-bold shadow-md flex items-center gap-1.5 backdrop-blur-md">
+                      <span>🇦🇺</span> AUSTRALIA OPS
+                    </span>
+                    <span className="text-[10px] text-cyan-300 font-bold uppercase tracking-wider bg-blue-950/90 px-2.5 py-1 rounded-full border border-blue-600/60 shadow-md backdrop-blur-md">
+                      Regional Office
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-6 space-y-3">
+                  <h3 className="text-lg font-bold text-white group-hover:text-cyan-300 transition">Regional Operations Hub</h3>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    Level 14, 385 Bourke Street, Melbourne VIC 3000, Australia. Enterprise ERP consulting, APAC analytics & client service operations.
+                  </p>
+                  <div className="pt-2 flex flex-wrap gap-1.5">
+                    <span className="px-2 py-0.5 rounded text-[10px] bg-slate-800/80 text-slate-300 border border-slate-700/60">Enterprise ERP Consulting</span>
+                    <span className="px-2 py-0.5 rounded text-[10px] bg-slate-800/80 text-slate-300 border border-slate-700/60">APAC Business Analytics</span>
+                    <span className="px-2 py-0.5 rounded text-[10px] bg-slate-800/80 text-slate-300 border border-slate-700/60">Client Solutions Hub</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="px-6 pb-6 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-cyan-300">
+                <a href="tel:+61390001122" className="hover:underline flex items-center gap-1">
+                  <PhoneCall className="w-3 h-3" /> +61 3 9000 1122
+                </a>
+                <a href="mailto:australia@inspacsolutions.com" className="hover:underline flex items-center gap-1">
+                  <Mail className="w-3 h-3" /> Email Ops
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -37,7 +37,7 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-800 font-sans selection:bg-cyan-500 selection:text-white flex flex-col justify-between relative">
+    <div className="min-h-screen bg-navy-950 text-slate-100 font-sans selection:bg-brand-500 selection:text-white flex flex-col justify-between relative">
       <ScrollToTop />
 
       {/* Toast Notification Banner */}
